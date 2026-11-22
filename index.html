@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0e16">
+<meta name="description" content="NICT Student Assessment Portal — 100 MCQ Python Foundation Test with instant summary report to NICT WhatsApp.">
+<title>NICT · Python Foundation Test — 100 MCQs</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 3c-4.5 0-7 2-7 5.5V12h7v2H9.5C6 14 4 16.5 4 20.5S6 27 9.5 27H12v-4.5c0-3.5 2.5-6 6-6h5.5c3 0 4.5-2 4.5-4.5V8.5C28 5 25.5 3 21 3h-1z' fill='%234b8bbe'/%3E%3Cpath d='M20 37c4.5 0 7-2 7-5.5V28h-7v-2h10.5c3.5 0 5.5-2.5 5.5-6.5S34 13 30.5 13H28v4.5c0 3.5-2.5 6-6 6h-5.5c-3 0-4.5 2-4.5 4.5v3.5C12 35 14.5 37 19 37h1z' fill='%23ffd43b'/%3E%3Ccircle cx='16.5' cy='7.5' r='1.7' fill='%230a0e16'/%3E%3Ccircle cx='23.5' cy='32.5' r='1.7' fill='%230a0e16'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ NICT · PYTHON DESIGN SYSTEM ============ */
+:root{
+  --bg0:#0a0e16; --bg1:#0f1420; --sf:#141b2b; --sf2:#1b2438; --sf3:#232e47;
+  --line:rgba(96,165,250,.16); --line2:rgba(96,165,250,.34);
+  --ink:#eaf1fb; --dim:#a9b7cd; --faint:#71809a;
+  --blue:#4b8bbe; --blue2:#3776ab; --bluehi:#7cc0f0;
+  --sky:#38bdf8; --cyan:#22d3ee;
+  --gold:#ffd43b; --gold2:#ffe873; --amber:#ffb020; --orange:#fb923c;
+  --green:#3ddc84; --acid:#4ade80; --violet:#a78bfa; --magenta:#e879f9;
+  --rose:#fb7185; --danger:#ff5d5d; --wa:#25d366;
+  --disp:"Space Grotesk",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --nav-h:64px;
+  --grad-gold:linear-gradient(120deg,#ffe873,#ffd43b 55%,#ffb020);
+  --grad-blue:linear-gradient(135deg,#7cc0f0,#4b8bbe 60%,#3776ab);
+  --grad-duo:linear-gradient(90deg,#3776ab,#4b8bbe 40%,#ffd43b);
+  --grad-wa:linear-gradient(135deg,#3ce97e,#17b45c);
+  --shadow:0 24px 70px rgba(2,6,16,.6), inset 0 1px 0 rgba(255,255,255,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{background:var(--bg0);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#161203}
+/* themed scrollbars */
+*{scrollbar-width:thin;scrollbar-color:#4b8bbe #0f1420}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:#0f1420}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7cc0f0,#3776ab);border-radius:8px;border:2px solid #0f1420}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#ffe873,#ffb020)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input{font-family:inherit}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block;vertical-align:middle}
+.ic.sm{width:15px;height:15px}
+code,.mono{font-family:var(--mono)}
+code.icd{font-family:var(--mono);font-size:.85em;background:rgba(75,139,190,.14);border:1px solid rgba(96,165,250,.28);color:#9ecdf5;padding:.08em .38em;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* ============ LAYERED BACKGROUND ============ */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(124,192,240,.055) 1px,transparent 1.4px);background-size:34px 34px;mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%)}
+.glow{position:absolute;border-radius:50%;filter:blur(95px);transition:opacity 1s}
+.g1{width:580px;height:580px;left:-11%;top:-15%;background:radial-gradient(circle,#3776ab,#38bdf8 60%,transparent);opacity:.32;animation:drift1 26s ease-in-out infinite alternate}
+.g2{width:470px;height:470px;right:-9%;bottom:-16%;background:radial-gradient(circle,#ffd43b,#fb923c 65%,transparent);opacity:.14;animation:drift2 33s ease-in-out infinite alternate}
+.g3{width:380px;height:380px;left:52%;top:36%;background:radial-gradient(circle,#22d3ee,#e879f9 70%,transparent);opacity:.1;animation:drift3 39s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(90px,70px) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-80px,-90px) scale(1.12)}}
+@keyframes drift3{to{transform:translate(-110px,60px) scale(.9)}}
+body[data-screen="quiz"] .glow{opacity:.11}
+body[data-screen="quiz"] .g2{opacity:.06}
+body[data-screen="quiz"] .g3{opacity:.05}
+.gl{position:absolute;font-family:var(--mono);font-weight:600;opacity:.15;white-space:nowrap;will-change:transform}
+.gl i{display:inline-block;font-style:normal;animation:gfloat var(--t,16s) ease-in-out infinite alternate}
+@keyframes gfloat{from{transform:translateY(-14px) rotate(-3deg)}to{transform:translateY(16px) rotate(3deg)}}
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 7s steps(8) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-4%)}75%{transform:translate(-2%,-2%)}100%{transform:translate(0,0)}}
+
+/* ============ NAVBAR ============ */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;display:flex;align-items:center;gap:14px;padding:0 clamp(14px,3vw,32px);background:rgba(10,14,22,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#3776ab 28%,#ffd43b 58%,transparent)}
+.brand{display:flex;align-items:center;gap:11px;text-align:left}
+.brand-mark{width:37px;height:37px;flex:none;filter:drop-shadow(0 4px 16px rgba(75,139,190,.5))}
+.brand-t{line-height:1.05}
+.brand-t b{font-family:var(--disp);font-size:1.22rem;letter-spacing:.02em;display:block}
+.brand-t span{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.nav-sp{flex:1}
+.nav-chip{display:none;align-items:center;gap:8px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(20,27,43,.75);font-size:.82rem;color:var(--dim);max-width:220px}
+.nav-chip .ic{width:15px;height:15px;color:var(--bluehi)}
+.nav-chip b{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-timer b{font-family:var(--mono);color:var(--gold);font-weight:600;letter-spacing:.04em}
+body[data-screen="quiz"] .nav-timer,body[data-screen="quiz"] .nav-student,body[data-screen="result"] .nav-student{display:flex}
+.snd{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;color:var(--bluehi);background:rgba(20,27,43,.75);transition:.2s}
+.snd:hover{border-color:var(--line2);transform:translateY(-1px)}
+.snd .i-off{display:none}
+.snd.muted{color:var(--rose);border-color:rgba(251,113,133,.4)}
+.snd.muted .i-on{display:none}.snd.muted .i-off{display:block}
+
+/* ============ SHARED ============ */
+main{position:relative;z-index:2;padding-top:var(--nav-h)}
+.screen{display:none;min-height:calc(100vh - var(--nav-h))}
+.screen.active{display:block;animation:scrIn .55s cubic-bezier(.22,1,.36,1) both}
+@keyframes scrIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.rise{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--d,0s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.panel{background:linear-gradient(180deg,#161e30,#111726);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:.95rem;padding:12px 20px;border-radius:14px;border:1px solid transparent;transition:transform .18s,box-shadow .25s,filter .2s,border-color .2s,background .2s;user-select:none}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--grad-blue);color:#06121f;box-shadow:0 10px 30px rgba(75,139,190,.35)}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 14px 38px rgba(75,139,190,.5)}
+.btn-gold{background:var(--grad-gold);color:#1c1503;box-shadow:0 10px 30px rgba(255,212,59,.28)}
+.btn-gold:hover{filter:brightness(1.06);transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,212,59,.42)}
+.btn-green{background:var(--grad-wa);color:#06230f;box-shadow:0 10px 30px rgba(37,211,102,.28)}
+.btn-green:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 14px 38px rgba(37,211,102,.42)}
+.btn-ghost{border-color:var(--line);color:var(--dim);background:rgba(20,27,43,.6)}
+.btn-ghost:hover{border-color:var(--line2);color:var(--ink);transform:translateY(-1px)}
+.btn-lg{padding:15px 26px;font-size:1.02rem;border-radius:15px}
+.btn.pulse{animation:btnPulse 1.5s ease-in-out infinite}
+@keyframes btnPulse{0%,100%{box-shadow:0 10px 30px rgba(255,212,59,.28)}50%{box-shadow:0 0 0 7px rgba(255,212,59,.16),0 10px 44px rgba(255,212,59,.55)}}
+.btn-green.pulse{animation:waPulse 1.5s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.28)}50%{box-shadow:0 0 0 7px rgba(37,211,102,.16),0 12px 42px rgba(37,211,102,.55)}}
+.chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+.foot{position:relative;z-index:2;text-align:center;padding:26px 16px 34px;color:var(--faint);font-size:.78rem;font-family:var(--mono);letter-spacing:.06em}
+.foot b{color:var(--gold)}
+
+/* ============ LOGIN ============ */
+.login-wrap{max-width:1220px;margin:0 auto;padding:clamp(26px,5vh,58px) clamp(16px,3vw,32px) 30px;display:grid;grid-template-columns:1.06fr .94fr;grid-template-areas:"hero form" "code form";gap:30px clamp(24px,4vw,58px);align-items:start}
+.hero{grid-area:hero}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--acid);border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.06)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 10px var(--acid);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.7rem,6.2vw,4.7rem);line-height:.98;letter-spacing:-.02em;margin:20px 0 16px}
+.hero h1 .hot{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 26px rgba(255,212,59,.3))}
+.hero .lede{color:var(--dim);font-size:1.02rem;max-width:54ch}
+.stat-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.stat{display:flex;align-items:center;gap:9px;padding:10px 15px;border-radius:13px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(27,36,56,.9),rgba(17,23,38,.9));font-size:.85rem;font-weight:600}
+.stat .ic{width:17px;height:17px}
+.stat b{font-family:var(--disp);font-size:1rem}
+.stat small{color:var(--faint);font-weight:500;display:block;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase}
+.s-blue .ic{color:var(--bluehi)}.s-gold .ic{color:var(--gold)}.s-green .ic{color:var(--acid)}.s-cyan .ic{color:var(--cyan)}
+.topic-preview{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tp-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.64rem;font-weight:600;letter-spacing:.04em;color:var(--dim);border:1px solid var(--line);background:rgba(15,20,32,.7);padding:5px 11px;border-radius:999px}
+.tp-chip i{width:7px;height:7px;border-radius:50%;background:var(--tc);box-shadow:0 0 7px var(--tc);flex:none}
+.tp-chip b{color:var(--ink)}
+/* code window */
+.codewin{grid-area:code;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,#101828,#0b101c);box-shadow:var(--shadow)}
+.cw-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid rgba(96,165,250,.12);background:rgba(27,36,56,.6)}
+.cw-dot{width:11px;height:11px;border-radius:50%}
+.cw-bar .fname{margin-left:8px;font-family:var(--mono);font-size:.75rem;color:var(--dim)}
+.cw-bar .enc{margin-left:auto;font-family:var(--mono);font-size:.62rem;color:var(--gold);letter-spacing:.1em}
+.cw-body{display:flex;padding:16px 14px 18px;font-family:var(--mono);font-size:.82rem;line-height:1.85}
+.cw-gutter{color:#3d4c66;text-align:right;padding-right:14px;user-select:none;white-space:pre}
+.cw-code{flex:1;min-width:0;overflow:hidden}
+.tl{white-space:pre;width:auto;color:#dbe6f5}
+.tl.pre{width:0;overflow:hidden}
+.tl.typing{overflow:hidden;border-right:2px solid var(--gold);animation:typeLine var(--dur) steps(var(--steps),end) forwards,caret .75s step-end infinite}
+.tl.done{width:var(--w)}
+.tl.idle-caret{border-right:2px solid var(--gold);animation:caret .75s step-end infinite;width:var(--w)}
+@keyframes typeLine{from{width:0}to{width:var(--w)}}
+@keyframes caret{50%{border-color:transparent}}
+.py-k{color:#6cb6ff}.py-s{color:#ffd43b}.py-n{color:#f78c6c}.py-c{color:#5d7290;font-style:italic}.py-b{color:#22d3ee}.py-ct{color:#e879f9}
+/* login card */
+.login-side{grid-area:form;display:flex;flex-direction:column;gap:16px;position:sticky;top:calc(var(--nav-h) + 20px)}
+.resume-card{padding:16px 18px;border-radius:16px;border:1px solid rgba(255,212,59,.35);background:linear-gradient(135deg,rgba(255,212,59,.09),rgba(75,139,190,.08));display:none}
+.resume-card.show{display:block;animation:fadeUp .5s both}
+.resume-card h4{font-family:var(--disp);font-size:.95rem;display:flex;gap:8px;align-items:center;color:var(--gold)}
+.resume-card p{font-size:.8rem;color:var(--dim);margin:5px 0 11px}
+.resume-card .row{display:flex;gap:9px}
+.resume-card .btn{padding:8px 15px;font-size:.82rem;border-radius:10px}
+.login-card{padding:clamp(22px,3vw,32px);position:relative;overflow:hidden}
+.login-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-duo)}
+.lc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
+.lc-head h2{font-family:var(--disp);font-size:1.55rem;letter-spacing:-.01em}
+.lc-head .ver{font-family:var(--mono);font-size:.6rem;color:var(--faint);letter-spacing:.14em;text-align:right;line-height:1.7;padding-top:5px}
+.lc-sub{color:var(--dim);font-size:.88rem;margin-bottom:22px}
+.field{margin-bottom:17px}
+.field label{display:block;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bluehi);margin-bottom:8px}
+.inp-wrap{display:flex;align-items:center;border:1px solid var(--line);border-radius:13px;background:#0b101c;transition:border-color .2s,box-shadow .2s;overflow:hidden}
+.inp-wrap:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(75,139,190,.2)}
+.inp-wrap .ic{margin-left:14px;color:var(--faint);width:18px;height:18px}
+.inp-wrap:focus-within .ic{color:var(--bluehi)}
+.inp-wrap input{flex:1;min-width:0;background:none;border:none;color:var(--ink);font-size:1rem;padding:14px 14px;outline:none}
+.inp-wrap input::placeholder{color:#4d5c75}
+.prefix{font-family:var(--mono);font-weight:600;color:var(--gold);padding:0 4px 0 12px;font-size:.95rem;border-right:1px solid var(--line);margin-right:2px;align-self:stretch;display:flex;align-items:center}
+.field.err .inp-wrap{border-color:var(--rose);box-shadow:0 0 0 3px rgba(251,113,133,.16)}
+.f-err{display:none;align-items:center;gap:6px;color:var(--rose);font-size:.78rem;margin-top:7px}
+.f-err .ic{width:14px;height:14px}
+.field.err .f-err{display:flex}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.btn-start{width:100%;margin-top:4px}
+.btn-start .ic{transition:transform .2s}
+.btn-start:hover .ic{transform:translateX(4px)}
+.lc-rules{margin-top:20px;padding-top:18px;border-top:1px dashed rgba(96,165,250,.2);display:grid;gap:9px}
+.rule{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--dim)}
+.rule .ic{width:16px;height:16px;margin-top:2px}
+.rule b{color:var(--ink);font-weight:600}
+.r-green .ic{color:var(--acid)}.r-blue .ic{color:var(--bluehi)}.r-cyan .ic{color:var(--cyan)}.r-wa .ic{color:var(--wa)}
+.lc-note{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:.72rem;color:var(--faint);flex-wrap:wrap}
+.lc-note .ic{width:13px;height:13px}
+.last-chip{display:none;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;color:var(--gold);border:1px solid rgba(255,212,59,.3);background:rgba(255,212,59,.06);padding:9px 14px;border-radius:11px}
+.last-chip.show{display:flex}
+.last-chip .ic{width:14px;height:14px}
+
+/* ============ QUIZ ============ */
+.quiz-wrap{max-width:1220px;margin:0 auto;padding:26px clamp(14px,3vw,32px) 60px;display:grid;grid-template-columns:1fr 322px;gap:24px;align-items:start}
+.q-main{min-width:0}
+.q-toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.q-count{font-family:var(--disp);font-size:1.35rem;font-weight:600;color:var(--faint)}
+.q-count b{color:var(--ink);font-size:1.7rem}
+.topic-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--bluehi));border:1px solid color-mix(in srgb,var(--tc,var(--bluehi)) 42%,transparent);background:color-mix(in srgb,var(--tc,var(--bluehi)) 10%,transparent);padding:6px 12px;border-radius:999px}
+.topic-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tc,var(--bluehi));box-shadow:0 0 8px var(--tc,var(--bluehi))}
+.q-toolbar .sp{flex:1}
+.mark-chip{font-family:var(--mono);font-size:.68rem;color:var(--faint);letter-spacing:.06em}
+.mark-chip b{color:var(--acid)}
+.switch{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-size:.78rem;color:var(--dim);user-select:none}
+.switch input{position:absolute;opacity:0;width:0;height:0}
+.sw-track{width:38px;height:21px;border-radius:999px;background:#2a3550;border:1px solid var(--line);position:relative;transition:.25s;flex:none}
+.sw-track::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#71809a;transition:.25s}
+.switch input:checked + .sw-track{background:rgba(255,212,59,.24);border-color:var(--gold)}
+.switch input:checked + .sw-track::after{left:19px;background:var(--gold);box-shadow:0 0 10px rgba(255,212,59,.7)}
+.switch input:focus-visible + .sw-track{outline:2px solid var(--gold);outline-offset:2px}
+.prog-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.prog{flex:1;height:9px;border-radius:999px;background:#1b2438;border:1px solid rgba(96,165,250,.14);overflow:hidden}
+.prog-fill{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#3776ab,#4b8bbe,#38bdf8,#22d3ee);box-shadow:0 0 14px rgba(56,189,248,.55);transition:width .5s cubic-bezier(.22,1,.36,1)}
+.prog-txt{font-family:var(--mono);font-size:.72rem;color:var(--dim);white-space:nowrap}
+.prog-txt b{color:var(--gold)}
+.q-card{padding:clamp(20px,3vw,32px);position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tc,var(--blue)),transparent 70%)}
+.q-ghost{position:absolute;top:2px;right:16px;font-family:var(--disp);font-weight:700;font-size:5rem;line-height:1;color:var(--bluehi);opacity:.08;pointer-events:none;user-select:none}
+.q-anim{animation:qNext .32s cubic-bezier(.22,1,.36,1) both}
+.q-anim.back{animation-name:qPrev}
+@keyframes qNext{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes qPrev{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+.q-text{font-size:clamp(1.08rem,2vw,1.32rem);font-weight:600;line-height:1.5;margin:6px 0 18px;max-width:60ch}
+.q-code{margin:0 0 20px;border:1px solid rgba(96,165,250,.24);border-radius:13px;background:#0b101c;overflow:hidden;max-width:640px}
+.qc-head{display:flex;align-items:center;gap:8px;padding:8px 13px;border-bottom:1px solid rgba(96,165,250,.14);background:rgba(27,36,56,.55)}
+.qc-head .qc-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(255,212,59,.6)}
+.qc-head span{font-family:var(--mono);font-size:.62rem;color:var(--faint);letter-spacing:.1em}
+.qc-head b{margin-left:auto;font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.16em}
+.q-code pre{padding:13px 16px;overflow-x:auto;font-family:var(--mono);font-size:.86rem;line-height:1.75;color:#dbe6f5}
+.opts{display:grid;gap:11px}
+.opt{display:grid;grid-template-columns:42px 1fr 26px;align-items:center;gap:14px;text-align:left;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(27,36,56,.75),rgba(19,26,42,.75));transition:transform .16s,border-color .2s,box-shadow .25s,background .2s;width:100%}
+.opt:hover{transform:translateY(-2px);border-color:var(--line2);box-shadow:0 8px 24px rgba(2,6,16,.5)}
+.opt-key{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.95rem;color:var(--bluehi);background:rgba(75,139,190,.12);border:1px solid rgba(96,165,250,.3);transition:.2s}
+.opt-text{font-size:.96rem;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.opt-text.mono{font-family:var(--mono);font-size:.85rem;color:#cfe4fa}
+.opt-check{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#06121f;background:var(--grad-blue);opacity:0;transform:scale(.4);transition:.25s cubic-bezier(.34,1.56,.64,1)}
+.opt-check .ic{width:14px;height:14px;stroke-width:3}
+.opt.selected{border-color:var(--blue);background:linear-gradient(180deg,rgba(75,139,190,.2),rgba(55,118,171,.1));box-shadow:0 0 0 1px var(--blue) inset,0 8px 30px rgba(75,139,190,.28)}
+.opt.selected .opt-key{background:var(--grad-gold);color:#1c1503;border-color:transparent;box-shadow:0 4px 14px rgba(255,212,59,.4)}
+.opt.selected .opt-check{opacity:1;transform:scale(1)}
+.opt.pop{animation:optPop .35s}
+@keyframes optPop{35%{transform:scale(1.015)}}
+.q-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px dashed rgba(96,165,250,.2)}
+.q-actions .sp{flex:1}
+.btn-flag.on{border-color:rgba(232,121,249,.5);color:var(--magenta);background:rgba(232,121,249,.1)}
+.kbd-hint{margin-top:16px;font-family:var(--mono);font-size:.66rem;color:var(--faint);letter-spacing:.05em;text-align:center}
+.kbd-hint b{color:var(--dim);background:#1b2438;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-weight:600}
+@media (hover:none){.kbd-hint{display:none}}
+/* sidebar */
+.q-side{position:sticky;top:calc(var(--nav-h) + 20px);display:grid;gap:16px}
+.pal-card{padding:20px}
+.pal-head{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.pal-head .ic{color:var(--bluehi);width:17px;height:17px}
+.pal-head h3{font-family:var(--disp);font-size:1rem}
+.pal-counts{display:flex;gap:12px;margin-bottom:13px;font-family:var(--mono);font-size:.66rem;color:var(--dim)}
+.pal-counts span{display:flex;align-items:center;gap:5px}
+.pc-dot{width:8px;height:8px;border-radius:3px}
+.pc-done{background:var(--acid)}.pc-flag{background:var(--magenta)}.pc-left{background:#33405e}
+.palette{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.pal-b{aspect-ratio:1;border-radius:7px;font-family:var(--mono);font-size:.6rem;font-weight:600;color:var(--faint);background:#182136;border:1px solid rgba(96,165,250,.12);display:grid;place-items:center;position:relative;transition:.15s;padding:0}
+.pal-b:hover{border-color:var(--gold);color:var(--ink);transform:scale(1.12);z-index:2}
+.pal-b.done{background:linear-gradient(135deg,#4ade80,#17b45c);color:#06230f;border-color:transparent}
+.pal-b.cur{box-shadow:0 0 0 2px var(--gold),0 0 12px rgba(255,212,59,.55);color:var(--ink);z-index:1}
+.pal-b.done.cur{color:#06230f}
+.pal-b.flag::after{content:"";position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--magenta);box-shadow:0 0 7px var(--magenta);border:1.5px solid #111726}
+.pal-legend{display:flex;flex-wrap:wrap;gap:9px 13px;margin-top:13px;padding-top:12px;border-top:1px dashed rgba(96,165,250,.16);font-size:.64rem;color:var(--faint);font-family:var(--mono)}
+.pal-legend span{display:flex;align-items:center;gap:5px}
+.lg-sw{width:11px;height:11px;border-radius:4px;flex:none}
+.submit-card{padding:18px;display:grid;gap:11px}
+.submit-card .btn{width:100%}
+.submit-note{font-size:.7rem;color:var(--faint);text-align:center;line-height:1.6}
+.submit-note b{color:var(--acid)}
+/* mobile action bar */
+.mobilebar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;align-items:center;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));background:rgba(10,14,22,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.mb-info{flex:1;text-align:center;font-family:var(--mono);font-size:.7rem;color:var(--dim);line-height:1.5}
+.mb-info b{color:var(--ink);font-size:.86rem;display:block}
+.mobilebar .btn{padding:11px 15px;border-radius:12px}
+.mb-ico{width:46px;height:46px;padding:0!important;display:grid;place-items:center}
+
+/* ============ MODAL ============ */
+.modal-ov{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:18px;background:rgba(4,7,13,.74);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:ovIn .25s both}
+@keyframes ovIn{from{opacity:0}}
+.modal-card{width:min(460px,100%);padding:28px;border-radius:22px;background:linear-gradient(180deg,#1a2338,#121828);border:1px solid var(--line2);box-shadow:0 40px 100px rgba(0,0,0,.7);animation:popIn .35s cubic-bezier(.34,1.4,.64,1) both}
+@keyframes popIn{from{opacity:0;transform:scale(.9) translateY(14px)}}
+.m-ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px;background:rgba(255,212,59,.1);border:1px solid rgba(255,212,59,.32);color:var(--gold)}
+.m-ico .ic{width:26px;height:26px}
+.modal-card h3{font-family:var(--disp);font-size:1.4rem;margin-bottom:7px}
+.modal-card .m-sub{color:var(--dim);font-size:.88rem;margin-bottom:18px}
+.m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:16px}
+.m-stat{padding:12px 8px;border-radius:13px;text-align:center;border:1px solid var(--line);background:rgba(11,16,28,.7)}
+.m-stat b{font-family:var(--disp);font-size:1.5rem;display:block;line-height:1.1}
+.m-stat span{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.ms-green b{color:var(--acid)}.ms-amber b{color:var(--amber)}.ms-mag b{color:var(--magenta)}
+.m-warn{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;padding:11px 13px;border-radius:11px;margin-bottom:18px;line-height:1.5}
+.m-warn .ic{width:16px;height:16px;margin-top:1px}
+.mw-amber{color:#ffd58a;background:rgba(255,176,32,.08);border:1px solid rgba(255,176,32,.28)}
+.mw-green{color:#a5f0c5;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.28)}
+.m-btns{display:flex;gap:10px}
+.m-btns .btn{flex:1}
+
+/* ============ RESULT ============ */
+.res-wrap{max-width:1120px;margin:0 auto;padding:30px clamp(14px,3vw,32px) 60px;display:grid;gap:20px}
+.res-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.stamp{display:inline-flex;align-items:center;gap:8px;color:var(--acid);border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.07)}
+.res-top h2{font-family:var(--disp);font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:-.02em}
+.res-top p{width:100%;color:var(--dim);font-size:.92rem;margin-top:-4px}
+.stu-card{display:flex;align-items:center;gap:16px;padding:18px 22px;flex-wrap:wrap}
+.avatar{width:56px;height:56px;border-radius:17px;background:var(--grad-duo);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:1.3rem;color:#0a1220;box-shadow:0 8px 24px rgba(75,139,190,.4);flex:none}
+.stu-info{min-width:0}
+.stu-info b{font-family:var(--disp);font-size:1.2rem;display:block;overflow-wrap:anywhere}
+.stu-info span{font-family:var(--mono);font-size:.8rem;color:var(--dim);display:flex;align-items:center;gap:6px}
+.stu-info .ic{width:13px;height:13px;color:var(--bluehi)}
+.stu-meta{margin-left:auto;text-align:right;font-family:var(--mono);font-size:.68rem;color:var(--faint);line-height:1.9}
+.stu-meta b{color:var(--gold)}
+.score-grid{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:stretch}
+.ring-card{padding:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+.ring-box{position:relative;width:210px;height:210px}
+.ring-box svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-track{fill:none;stroke:#1e2942;stroke-width:15}
+.ring-fg{fill:none;stroke:url(#gradScore);stroke-width:15;stroke-linecap:round;transition:stroke-dashoffset 1.5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 0 10px rgba(75,139,190,.55))}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-center b{font-family:var(--disp);font-size:3.4rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+.ring-center small{font-family:var(--mono);color:var(--faint);font-size:.8rem;margin-top:3px}
+.ring-center .pct{font-family:var(--mono);color:var(--gold);font-size:.95rem;font-weight:600;margin-top:6px}
+.grade-badge{font-family:var(--disp);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;padding:9px 22px;border-radius:999px;border:1.5px solid var(--gc,var(--acid));color:var(--gc,var(--acid));background:color-mix(in srgb,var(--gc,var(--acid)) 9%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--gc,var(--acid)) 25%,transparent)}
+.grade-msg{font-size:.8rem;color:var(--dim);max-width:26ch}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.tile{padding:18px 16px;border-radius:17px;border:1px solid var(--line);background:linear-gradient(180deg,#161e30,#111726);display:flex;flex-direction:column;gap:9px;justify-content:center}
+.tile .t-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--tc2) 12%,transparent);color:var(--tc2);border:1px solid color-mix(in srgb,var(--tc2) 32%,transparent)}
+.tile .t-ic .ic{width:17px;height:17px}
+.tile b{font-family:var(--disp);font-size:1.65rem;line-height:1;letter-spacing:-.01em}
+.tile span{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.topic-card{padding:24px}
+.card-h{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.card-h .ic{color:var(--bluehi)}
+.card-h h3{font-family:var(--disp);font-size:1.15rem}
+.card-h small{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--faint);letter-spacing:.08em}
+.bars{display:grid;gap:12px}
+.bar-row{display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:14px}
+.bar-name{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--dim);min-width:0}
+.bar-name i{width:9px;height:9px;border-radius:3px;background:var(--tc);box-shadow:0 0 8px color-mix(in srgb,var(--tc) 60%,transparent);flex:none}
+.bar-track{height:13px;border-radius:999px;background:#1b2438;border:1px solid rgba(96,165,250,.12);overflow:hidden}
+.bar-fill{height:100%;width:0;border-radius:999px;position:relative;transition:width 1s cubic-bezier(.22,1,.36,1);transition-delay:var(--bd,0s);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.16) 0 5px,transparent 5px 11px);background-color:var(--tc)}
+.bar-val{font-family:var(--mono);font-size:.78rem;color:var(--ink);text-align:right}
+.bar-val small{color:var(--faint)}
+.wa-card{padding:24px;border-color:rgba(37,211,102,.32);background:linear-gradient(135deg,rgba(37,211,102,.07),rgba(23,180,92,.03) 45%,#111726)}
+.wa-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.wa-ic{width:48px;height:48px;border-radius:15px;background:var(--grad-wa);display:grid;place-items:center;color:#06230f;box-shadow:0 8px 24px rgba(37,211,102,.35);flex:none}
+.wa-ic .ic{width:25px;height:25px}
+.wa-head h3{font-family:var(--disp);font-size:1.15rem}
+.wa-head .num{font-family:var(--mono);font-size:.82rem;color:var(--wa);font-weight:600}
+.wa-steps{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+.wa-step{display:flex;align-items:center;gap:7px;font-size:.74rem;font-family:var(--mono);padding:8px 13px;border-radius:999px;border:1px solid var(--line);color:var(--faint)}
+.wa-step .ic{width:14px;height:14px}
+.wa-step.ok{color:var(--acid);border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.06)}
+.wa-step.warn{color:var(--amber);border-color:rgba(255,176,32,.4);background:rgba(255,176,32,.07)}
+.wa-actions{display:flex;gap:11px;flex-wrap:wrap}
+.wa-actions .btn-green{flex:1;min-width:230px}
+.wa-status{font-size:.8rem;color:var(--dim);margin-top:13px;display:flex;gap:8px;align-items:flex-start;line-height:1.55}
+.wa-status .ic{width:15px;height:15px;margin-top:2px;color:var(--wa)}
+.wa-preview{margin-top:15px;border-top:1px dashed rgba(37,211,102,.25);padding-top:13px}
+.wa-preview summary{cursor:pointer;font-family:var(--mono);font-size:.72rem;color:var(--wa);display:flex;align-items:center;gap:7px;list-style:none}
+.wa-preview summary::-webkit-details-marker{display:none}
+.wa-preview summary .ic{width:14px;height:14px;transition:transform .2s}
+.wa-preview[open] summary .ic{transform:rotate(180deg)}
+.wa-preview pre{margin-top:11px;font-family:var(--mono);font-size:.72rem;line-height:1.7;color:var(--dim);white-space:pre-wrap;word-break:break-word;background:#0b101c;border:1px solid rgba(37,211,102,.2);border-radius:12px;padding:14px;max-height:250px;overflow:auto}
+.rev-card{padding:24px}
+.rev-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.chips-f{display:flex;gap:8px;flex-wrap:wrap}
+.chip-f{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.72rem;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--dim);transition:.2s}
+.chip-f b{font-size:.68rem;padding:1px 7px;border-radius:999px;background:#232e47;color:var(--dim)}
+.chip-f:hover{border-color:var(--line2);color:var(--ink)}
+.chip-f.active{color:#06121f;background:var(--grad-blue);border-color:transparent}
+.chip-f.active b{background:rgba(6,18,31,.25);color:#06121f}
+.chip-f.fc.active{background:linear-gradient(135deg,#4ade80,#17b45c);color:#06230f}
+.chip-f.fw.active{background:linear-gradient(135deg,#ff8fa0,#fb7185);color:#2b060d}
+.chip-f.fs.active{background:linear-gradient(135deg,#ffe873,#ffb020);color:#2b1a02}
+.rev-search{margin-left:auto;display:flex;align-items:center;border:1px solid var(--line);border-radius:11px;background:#0b101c;padding:0 12px;min-width:210px;flex:0 1 260px}
+.rev-search .ic{width:15px;height:15px;color:var(--faint)}
+.rev-search input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--ink);font-size:.84rem;padding:10px 10px}
+.rev-list{max-height:600px;overflow-y:auto;display:grid;gap:9px;padding-right:6px}
+.review-item{border:1px solid var(--line);border-radius:14px;background:rgba(19,26,42,.7);overflow:hidden}
+.review-item summary{display:flex;align-items:center;gap:11px;padding:12px 15px;cursor:pointer;list-style:none;transition:background .2s}
+.review-item summary::-webkit-details-marker{display:none}
+.review-item summary:hover{background:rgba(75,139,190,.08)}
+.ri-status{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;flex:none}
+.ri-status .ic{width:14px;height:14px;stroke-width:2.6}
+.review-item.correct .ri-status{color:var(--acid);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.32)}
+.review-item.wrong .ri-status{color:var(--rose);background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.32)}
+.review-item.skip .ri-status{color:var(--amber);background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.32)}
+.ri-num{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--faint);flex:none;width:34px}
+.ri-topic{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tc);border:1px solid color-mix(in srgb,var(--tc) 38%,transparent);padding:2px 8px;border-radius:999px;flex:none}
+.ri-q{flex:1;min-width:0;font-size:.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--dim)}
+.review-item[open] .ri-q{white-space:normal;color:var(--ink)}
+.ri-chev{color:var(--faint);transition:transform .25s;flex:none;width:16px;height:16px}
+.review-item[open] .ri-chev{transform:rotate(180deg)}
+.ri-body{padding:4px 16px 16px 52px;display:grid;gap:9px;border-top:1px dashed rgba(96,165,250,.14)}
+.ri-body .ri-code{font-family:var(--mono);font-size:.76rem;line-height:1.7;background:#0b101c;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:10px 13px;margin-top:9px;overflow-x:auto;white-space:pre;color:#dbe6f5}
+.ri-ans{display:flex;gap:9px;align-items:flex-start;font-size:.84rem;padding-top:9px;line-height:1.5}
+.ri-ans .tag{font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:6px;flex:none;margin-top:1px}
+.ri-ans.good .tag{color:var(--acid);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)}
+.ri-ans.bad .tag{color:var(--rose);background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.3)}
+.ri-ans.none .tag{color:var(--amber);background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.3)}
+.ri-ans .mono{font-size:.8rem}
+.ri-exp{display:flex;gap:9px;font-size:.8rem;color:var(--dim);background:rgba(255,212,59,.05);border:1px solid rgba(255,212,59,.18);border-radius:11px;padding:11px 13px;line-height:1.6}
+.ri-exp .ic{width:15px;height:15px;color:var(--gold);margin-top:2px}
+.empty-rev{text-align:center;padding:44px 20px;color:var(--faint)}
+.empty-rev .ic{width:34px;height:34px;margin-bottom:10px;color:var(--bluehi)}
+.res-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding-top:6px}
+
+/* ============ TOAST / CONFETTI ============ */
+.toasts{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:9px;align-items:center;pointer-events:none;width:min(420px,calc(100vw - 30px))}
+body[data-screen="quiz"] .toasts{bottom:92px}
+.toast{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:13px;font-size:.84rem;font-weight:500;background:rgba(22,30,48,.96);border:1px solid var(--line2);box-shadow:0 16px 44px rgba(0,0,0,.6);backdrop-filter:blur(10px);opacity:0;transform:translateY(14px);transition:.3s cubic-bezier(.22,1,.36,1);max-width:100%}
+.toast.show{opacity:1;transform:none}
+.toast .ic{width:17px;height:17px;color:var(--acid)}
+.toast.warn{border-color:rgba(255,176,32,.45)}
+.toast.warn .ic{color:var(--amber)}
+#confetti{position:fixed;inset:0;z-index:180;pointer-events:none}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1023px){
+  .quiz-wrap{grid-template-columns:1fr;padding-bottom:118px}
+  .q-side{position:static}
+  body[data-screen="quiz"] .mobilebar{display:flex}
+  .score-grid{grid-template-columns:1fr}
+  .login-wrap{grid-template-columns:1fr;grid-template-areas:"hero" "form" "code"}
+  .login-side{position:static}
+  .codewin{max-width:640px}
+}
+@media (max-width:640px){
+  .brand-t span{display:none}
+  .nav-chip{padding:6px 10px;font-size:.74rem}
+  .nav-student b{max-width:82px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .bar-row{grid-template-columns:122px 1fr 56px;gap:9px}
+  .bar-name{font-size:.7rem}
+  .ri-topic{display:none}
+  .ri-body{padding-left:16px}
+  .q-ghost{font-size:3.4rem}
+  .m-btns{flex-direction:column-reverse}
+  .rev-search{flex:1 1 100%;margin-left:0}
+  .stu-meta{margin-left:0;text-align:left;width:100%}
+  .cw-body{font-size:.66rem}
+  .hero h1{font-size:2.55rem}
+  .opt{grid-template-columns:36px 1fr 22px;gap:11px;padding:12px 13px}
+  .opt-key{width:33px;height:33px;font-size:.85rem}
+  .q-code pre{font-size:.76rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .grain,.gl i{animation:none!important}
+}
+</style>
+</head>
+<body data-screen="login">
+
+<!-- SVG SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4c4-2 6 2 10 0v9c-4 2-6-2-10 0"/></symbol>
+  <symbol id="i-arL" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+  <symbol id="i-arR" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v12M6 9l6 6 6-6M4 21h16"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6"/></symbol>
+  <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+  <symbol id="i-volx" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6M21 9l-4 6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17.5h.01"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 1 3.6 10.8c-.6.5-1.1 1.3-1.3 2.2h-4.6c-.2-.9-.7-1.7-1.3-2.2A6 6 0 0 1 12 3z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2V5z"/><path d="M20 17H6a2 2 0 0 0-2 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path transform="translate(7.4 7.4) scale(0.38)" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-exit" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20v-6M9 20V8M14 20v-10M19 20V5M2 20h20"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+</svg>
+
+<!-- BACKGROUND -->
+<div class="bg" aria-hidden="true">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+  <div id="glyphs">
+    <span class="gl" data-d="26" style="left:6%;top:16%;color:#4b8bbe;font-size:26px;--t:14s"><i>def</i></span>
+    <span class="gl" data-d="-34" style="left:84%;top:12%;color:#ffd43b;font-size:32px;--t:19s"><i>&gt;&gt;&gt;</i></span>
+    <span class="gl" data-d="18" style="left:12%;top:72%;color:#a78bfa;font-size:20px;--t:17s"><i>lambda</i></span>
+    <span class="gl" data-d="-22" style="left:74%;top:78%;color:#4ade80;font-size:22px;--t:21s"><i>import this</i></span>
+    <span class="gl" data-d="40" style="left:46%;top:8%;color:#22d3ee;font-size:17px;--t:15s"><i>print()</i></span>
+    <span class="gl" data-d="-16" style="left:90%;top:48%;color:#e879f9;font-size:19px;--t:23s"><i>self</i></span>
+    <span class="gl" data-d="30" style="left:4%;top:44%;color:#38bdf8;font-size:18px;--t:18s"><i>[ : ]</i></span>
+    <span class="gl" data-d="-40" style="left:58%;top:88%;color:#fb7185;font-size:21px;--t:16s"><i>elif</i></span>
+    <span class="gl" data-d="22" style="left:32%;top:56%;color:#fb923c;font-size:15px;--t:25s"><i>__init__</i></span>
+    <span class="gl" data-d="-28" style="left:66%;top:30%;color:#7cc0f0;font-size:16px;--t:20s"><i># PEP 8</i></span>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <button class="brand" id="brandBtn" aria-label="NICT home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+      <defs>
+        <linearGradient id="lgBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc0f0"/><stop offset="1" stop-color="#3776ab"/></linearGradient>
+        <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe873"/><stop offset="1" stop-color="#ffd43b"/></linearGradient>
+      </defs>
+      <path d="M20 3c-4.5 0-7 2-7 5.5V12h7v2H9.5C6 14 4 16.5 4 20.5S6 27 9.5 27H12v-4.5c0-3.5 2.5-6 6-6h5.5c3 0 4.5-2 4.5-4.5V8.5C28 5 25.5 3 21 3h-1z" fill="url(#lgBlue)"/>
+      <path d="M20 3c-4.5 0-7 2-7 5.5V12h7v2H9.5C6 14 4 16.5 4 20.5S6 27 9.5 27H12v-4.5c0-3.5 2.5-6 6-6h5.5c3 0 4.5-2 4.5-4.5V8.5C28 5 25.5 3 21 3h-1z" fill="url(#lgGold)" transform="rotate(180 20 20)"/>
+      <circle cx="16.5" cy="7.5" r="1.7" fill="#0a0e16"/><circle cx="23.5" cy="32.5" r="1.7" fill="#0a0e16"/>
+    </svg>
+    <span class="brand-t"><b>NICT</b><span>Python Assessment</span></span>
+  </button>
+  <div class="nav-sp"></div>
+  <div class="nav-chip nav-timer"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg><b id="navTimerVal">00:00</b></div>
+  <div class="nav-chip nav-student"><svg class="ic" viewBox="0 0 24 24"><use href="#i-user"/></svg><b id="navStudentName">Student</b></div>
+  <button class="snd" id="soundBtn" aria-label="Toggle sound" aria-pressed="true" title="Sound on/off">
+    <svg class="ic i-on" viewBox="0 0 24 24"><use href="#i-vol"/></svg>
+    <svg class="ic i-off" viewBox="0 0 24 24"><use href="#i-volx"/></svg>
+  </button>
+</nav>
+
+<main>
+<!-- ================= LOGIN ================= -->
+<section class="screen active" id="scr-login">
+  <div class="login-wrap">
+    <div class="hero">
+      <span class="chip eyebrow rise" style="--d:.05s"><span class="dot"></span>NICT Student Assessment · Python Series A</span>
+      <h1 class="rise" style="--d:.12s"><span class="hot">PYTHON</span><br>Foundation Test</h1>
+      <p class="lede rise" style="--d:.2s">One hundred questions on the world's favourite first language — from <code class="icd">print()</code> and slicing to functions, files and OOP. Answer, advance, and your report goes straight to NICT on WhatsApp.</p>
+      <div class="stat-row rise" style="--d:.28s">
+        <div class="stat s-gold"><svg class="ic" viewBox="0 0 24 24"><use href="#i-book"/></svg><div><b>100</b><small>MCQs</small></div></div>
+        <div class="stat s-blue"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg><div><b>100</b><small>Marks</small></div></div>
+        <div class="stat s-green"><svg class="ic" viewBox="0 0 24 24"><use href="#i-shield"/></svg><div><b>Zero</b><small>Negative</small></div></div>
+        <div class="stat s-cyan"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg><div><b>Self</b><small>Paced</small></div></div>
+      </div>
+      <div class="topic-preview rise" style="--d:.34s" id="topicPreview"></div>
+    </div>
+
+    <div class="codewin rise" style="--d:.4s" aria-hidden="true">
+      <div class="cw-bar">
+        <span class="cw-dot" style="background:#ff5f57"></span><span class="cw-dot" style="background:#febc2e"></span><span class="cw-dot" style="background:#28c840"></span>
+        <span class="fname">nict_test.py — NICT</span><span class="enc">PYTHON 3 · UTF-8</span>
+      </div>
+      <div class="cw-body">
+        <div class="cw-gutter">01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11</div>
+        <div class="cw-code" id="codeLines">
+          <div class="tl"><span class="py-c"># nict_test.py</span></div>
+          <div class="tl"><span class="py-k">def</span> greet(student):</div>
+          <div class="tl">    message = <span class="py-s">f'Hello, {student}!'</span></div>
+          <div class="tl">    <span class="py-k">return</span> message</div>
+          <div class="tl"> </div>
+          <div class="tl"><span class="py-k">class</span> Student:</div>
+          <div class="tl">    <span class="py-k">def</span> __init__(self, name):</div>
+          <div class="tl">        self.name = name</div>
+          <div class="tl"> </div>
+          <div class="tl">s = Student(<span class="py-s">'future dev'</span>)</div>
+          <div class="tl"><span class="py-b">print</span>(greet(s.name))</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-side">
+      <div class="resume-card" id="resumeCard">
+        <h4><svg class="ic" viewBox="0 0 24 24"><use href="#i-refresh"/></svg>Attempt in progress</h4>
+        <p id="resumeInfo"></p>
+        <div class="row">
+          <button class="btn btn-gold" id="btnResume">Resume test</button>
+          <button class="btn btn-ghost" id="btnDiscard">Discard</button>
+        </div>
+      </div>
+
+      <form class="panel login-card rise" style="--d:.22s" id="loginForm" novalidate>
+        <div class="lc-head">
+          <h2>Student Login</h2>
+          <span class="ver">PYTHON · SERIES A<br>v2026.11</span>
+        </div>
+        <p class="lc-sub">Enter your details exactly as registered at NICT. They appear on your report.</p>
+
+        <div class="field" id="fieldName">
+          <label for="inpName">Full name</label>
+          <div class="inp-wrap">
+            <svg class="ic" viewBox="0 0 24 24"><use href="#i-user"/></svg>
+            <input id="inpName" type="text" placeholder="e.g. Ankit Kumar" maxlength="60" autocomplete="name">
+          </div>
+          <span class="f-err"><svg class="ic" viewBox="0 0 24 24"><use href="#i-alert"/></svg><span>Enter your full name (letters, spaces, dots — min 3 characters).</span></span>
+        </div>
+
+        <div class="field" id="fieldMobile">
+          <label for="inpMobile">Mobile number</label>
+          <div class="inp-wrap">
+            <svg class="ic" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+            <span class="prefix">+91</span>
+            <input id="inpMobile" type="text" inputmode="numeric" placeholder="10-digit number" maxlength="10" autocomplete="tel-national">
+          </div>
+          <span class="f-err"><svg class="ic" viewBox="0 0 24 24"><use href="#i-alert"/></svg><span>Enter a valid 10-digit number starting with 6–9.</span></span>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-lg btn-start" id="btnStart">
+          Start Test <svg class="ic" viewBox="0 0 24 24"><use href="#i-arR"/></svg>
+        </button>
+
+        <div class="lc-rules">
+          <div class="rule r-green"><svg class="ic" viewBox="0 0 24 24"><use href="#i-check"/></svg><span><b>+1 mark</b> per correct answer · <b>no negative marking</b> — attempt every question.</span></div>
+          <div class="rule r-blue"><svg class="ic" viewBox="0 0 24 24"><use href="#i-zap"/></svg><span>Questions appear <b>one by one</b> and auto-advance after you answer.</span></div>
+          <div class="rule r-cyan"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg><span>No time limit — the timer records how long you take. Progress auto-saves in this tab.</span></div>
+          <div class="rule r-wa"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg><span>On submit, your summary report opens in WhatsApp, addressed to NICT.</span></div>
+        </div>
+
+        <div class="lc-note"><svg class="ic" viewBox="0 0 24 24"><use href="#i-lock"/></svg>Details are used only for your test report. NICT WhatsApp: <b class="mono" style="color:var(--wa)">+91 79787 58965</b></div>
+      </form>
+
+      <div class="last-chip" id="lastChip"><svg class="ic" viewBox="0 0 24 24"><use href="#i-spark"/></svg><span id="lastChipTxt"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="screen" id="scr-quiz">
+  <div class="quiz-wrap">
+    <div class="q-main">
+      <div class="q-toolbar">
+        <span class="q-count" id="qCounter"><b>01</b> / 100</span>
+        <span class="topic-chip" id="qTopic">Basics</span>
+        <span class="sp"></span>
+        <span class="mark-chip"><b>+1</b> correct · <b style="color:var(--dim)">0</b> negative</span>
+        <label class="switch" title="Automatically move to the next question after answering">
+          <input type="checkbox" id="autoNext" checked>
+          <span class="sw-track"></span> Auto-next
+        </label>
+      </div>
+      <div class="prog-row">
+        <div class="prog"><div class="prog-fill" id="progFill"></div></div>
+        <span class="prog-txt" id="progTxt"><b>0</b>/100 answered</span>
+      </div>
+
+      <div class="panel q-card" id="qCard">
+        <span class="q-ghost" id="qGhost" aria-hidden="true">01</span>
+        <div id="qInner" aria-live="polite">
+          <p class="q-text" id="qText"></p>
+          <div class="q-code" id="qCode">
+            <div class="qc-head"><span class="qc-dot"></span><span>snippet.py</span><b>PYTHON 3</b></div>
+            <pre><code id="qCodePre"></code></pre>
+          </div>
+          <div class="opts" id="optWrap" role="group" aria-label="Answer options"></div>
+        </div>
+        <div class="q-actions">
+          <button class="btn btn-ghost" id="btnClear"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-x"/></svg>Clear</button>
+          <button class="btn btn-ghost btn-flag" id="btnFlag"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-flag"/></svg><span id="flagLbl">Mark for review</span></button>
+          <span class="sp"></span>
+          <button class="btn btn-ghost" id="btnPrev"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-arL"/></svg>Prev</button>
+          <button class="btn btn-primary" id="btnNext"><span id="nextLbl">Next</span><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-arR"/></svg></button>
+        </div>
+      </div>
+      <p class="kbd-hint">Shortcuts&nbsp; <b>1–4</b> / <b>A–D</b> answer · <b>←</b> <b>→</b> move · <b>M</b> mark · <b>X</b> clear</p>
+    </div>
+
+    <aside class="q-side">
+      <div class="panel pal-card">
+        <div class="pal-head"><svg class="ic" viewBox="0 0 24 24"><use href="#i-grid"/></svg><h3>Question Palette</h3></div>
+        <div class="pal-counts">
+          <span><i class="pc-dot pc-done"></i><b id="palDone">0</b> done</span>
+          <span><i class="pc-dot pc-flag"></i><b id="palFlag">0</b> marked</span>
+          <span><i class="pc-dot pc-left"></i><b id="palLeft">100</b> left</span>
+        </div>
+        <div class="palette" id="palette"></div>
+        <div class="pal-legend">
+          <span><i class="lg-sw" style="background:linear-gradient(135deg,#4ade80,#17b45c)"></i>Answered</span>
+          <span><i class="lg-sw" style="background:#182136;border:1px solid rgba(96,165,250,.3)"></i>Not visited</span>
+          <span><i class="lg-sw" style="box-shadow:0 0 0 2px var(--gold);background:#182136"></i>Current</span>
+          <span><i class="lg-sw" style="background:var(--magenta);border-radius:50%"></i>Marked</span>
+        </div>
+      </div>
+      <div class="panel submit-card">
+        <button class="btn btn-gold btn-lg" id="btnSubmitSide"><svg class="ic" viewBox="0 0 24 24"><use href="#i-send"/></svg>Submit Test</button>
+        <p class="submit-note">Unanswered questions score <b>0</b> — there is <b>no negative marking</b>, so guessing never hurts.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= RESULT ================= -->
+<section class="screen" id="scr-result">
+  <div class="res-wrap">
+    <div class="res-top rise" style="--d:.05s">
+      <span class="chip stamp"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-check"/></svg>Submitted</span>
+      <h2>Test Complete!</h2>
+      <p>Your summary report is ready — send it to NICT on WhatsApp to complete your submission.</p>
+    </div>
+
+    <div class="panel stu-card rise" style="--d:.12s">
+      <div class="avatar" id="resAvatar">NK</div>
+      <div class="stu-info">
+        <b id="resName">Student</b>
+        <span><svg class="ic" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span id="resMobile">+91</span></span>
+      </div>
+      <div class="stu-meta">ATTEMPT <b id="resId">NICT-PY-0000</b><br><span id="resDate"></span><br>SERIES A · PYTHON FOUNDATION</div>
+    </div>
+
+    <div class="score-grid">
+      <div class="panel ring-card rise" style="--d:.18s">
+        <div class="ring-box">
+          <svg viewBox="0 0 200 200">
+            <defs><linearGradient id="gradScore" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd43b"/><stop offset=".5" stop-color="#4b8bbe"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+            <circle class="ring-track" cx="100" cy="100" r="84"/>
+            <circle class="ring-fg" id="ringFg" cx="100" cy="100" r="84"/>
+          </svg>
+          <div class="ring-center"><b id="scoreNum">0</b><small>out of 100</small><span class="pct" id="scorePct">0%</span></div>
+        </div>
+        <span class="grade-badge" id="gradeBadge">—</span>
+        <p class="grade-msg" id="gradeMsg"></p>
+      </div>
+      <div class="stat-grid rise" style="--d:.24s">
+        <div class="tile" style="--tc2:#4ade80"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-check"/></svg></span><b id="stCorrect">0</b><span>Correct</span></div>
+        <div class="tile" style="--tc2:#fb7185"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-x"/></svg></span><b id="stWrong">0</b><span>Incorrect</span></div>
+        <div class="tile" style="--tc2:#ffb020"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-minus"/></svg></span><b id="stSkip">0</b><span>Unattempted</span></div>
+        <div class="tile" style="--tc2:#38bdf8"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg></span><b id="stAcc">0%</b><span>Accuracy</span></div>
+        <div class="tile" style="--tc2:#22d3ee"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg></span><b id="stTime">00:00</b><span>Time taken</span></div>
+        <div class="tile" style="--tc2:#a78bfa"><span class="t-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-zap"/></svg></span><b id="stAvg">0s</b><span>Avg / question</span></div>
+      </div>
+    </div>
+
+    <div class="panel topic-card rise" style="--d:.3s">
+      <div class="card-h"><svg class="ic" viewBox="0 0 24 24"><use href="#i-chart"/></svg><h3>Topic-wise Performance</h3><small>CORRECT / TOTAL</small></div>
+      <div class="bars" id="topicBars"></div>
+    </div>
+
+    <div class="panel wa-card rise" style="--d:.36s">
+      <div class="wa-head">
+        <span class="wa-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+        <div><h3>Send report to NICT</h3><span class="num">+91 79787 58965 · Official NICT WhatsApp</span></div>
+      </div>
+      <div class="wa-steps">
+        <span class="wa-step ok"><svg class="ic" viewBox="0 0 24 24"><use href="#i-check"/></svg>1 · Report generated</span>
+        <span class="wa-step" id="waStep2"><svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg>2 · WhatsApp opened</span>
+        <span class="wa-step"><svg class="ic" viewBox="0 0 24 24"><use href="#i-send"/></svg>3 · Press Send there</span>
+      </div>
+      <div class="wa-actions">
+        <button class="btn btn-green btn-lg" id="btnWa"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg><span id="btnWaLbl">Send on WhatsApp</span></button>
+        <button class="btn btn-ghost" id="btnCopy"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-copy"/></svg>Copy report</button>
+        <button class="btn btn-ghost" id="btnDl"><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-dl"/></svg>Download .txt</button>
+      </div>
+      <p class="wa-status" id="waStatus"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg><span>The report — with your name, mobile number and full summary — is pre-filled in a WhatsApp chat to NICT. Just press <b>Send</b> there.</span></p>
+      <details class="wa-preview">
+        <summary><svg class="ic" viewBox="0 0 24 24"><use href="#i-chev"/></svg>Preview the exact message</summary>
+        <pre id="waPreviewPre"></pre>
+      </details>
+    </div>
+
+    <div class="panel rev-card rise" style="--d:.42s">
+      <div class="card-h"><svg class="ic" viewBox="0 0 24 24"><use href="#i-list"/></svg><h3>Answer Review</h3><small>TAP A QUESTION FOR THE CORRECT ANSWER + EXPLANATION</small></div>
+      <div class="rev-tools">
+        <div class="chips-f" id="revFilters">
+          <button class="chip-f active" data-f="all">All <b id="cAll">100</b></button>
+          <button class="chip-f fc" data-f="correct">Correct <b id="cCorrect">0</b></button>
+          <button class="chip-f fw" data-f="wrong">Wrong <b id="cWrong">0</b></button>
+          <button class="chip-f fs" data-f="skip">Skipped <b id="cSkip">0</b></button>
+        </div>
+        <div class="rev-search"><svg class="ic" viewBox="0 0 24 24"><use href="#i-search"/></svg><input id="revSearch" type="text" placeholder="Search questions…" aria-label="Search questions"></div>
+      </div>
+      <div class="rev-list" id="revList"></div>
+    </div>
+
+    <div class="res-actions rise" style="--d:.48s">
+      <button class="btn btn-gold btn-lg" id="btnRetake"><svg class="ic" viewBox="0 0 24 24"><use href="#i-refresh"/></svg>Retake Test</button>
+      <button class="btn btn-ghost btn-lg" id="btnNew"><svg class="ic" viewBox="0 0 24 24"><use href="#i-user"/></svg>New Student</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">© 2026 <b>NICT</b> · Student Assessment Portal · Python Foundation Series A · 100 MCQs · Report line <b>+91 79787 58965</b></footer>
+
+<!-- MOBILE QUIZ BAR -->
+<div class="mobilebar">
+  <button class="btn btn-ghost mb-ico" id="mbPrev" aria-label="Previous question"><svg class="ic" viewBox="0 0 24 24"><use href="#i-arL"/></svg></button>
+  <div class="mb-info"><b id="mbQ">Q 01 / 100</b><span id="mbDone">0 answered</span></div>
+  <button class="btn btn-ghost mb-ico" id="mbSubmit" aria-label="Submit test"><svg class="ic" viewBox="0 0 24 24"><use href="#i-send"/></svg></button>
+  <button class="btn btn-primary" id="mbNext"><span id="mbNextLbl">Next</span><svg class="ic sm" viewBox="0 0 24 24"><use href="#i-arR"/></svg></button>
+</div>
+
+<div id="modalRoot"></div>
+<div class="toasts" id="toastRoot" aria-live="polite"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<noscript><div style="position:fixed;inset:0;z-index:999;background:#0a0e16;color:#eaf1fb;display:grid;place-items:center;text-align:center;padding:30px;font-family:sans-serif">This test requires JavaScript. Please enable it and reload.</div></noscript>
+
+<script>
+(function(){
+"use strict";
+/* ================= DATA — 100 PYTHON MCQs ================= */
+const TOPICS=[
+ {name:"Python Basics",short:"Basics",hue:"#4b8bbe"},
+ {name:"Operators & Numbers",short:"Operators",hue:"#ffd43b"},
+ {name:"Strings",short:"Strings",hue:"#22d3ee"},
+ {name:"Lists & Tuples",short:"Lists",hue:"#a78bfa"},
+ {name:"Dicts & Sets",short:"Dicts",hue:"#e879f9"},
+ {name:"Control Flow & Loops",short:"Flow",hue:"#4ade80"},
+ {name:"Functions & Modules",short:"Functions",hue:"#fb923c"},
+ {name:"OOP, Errors & Files",short:"OOP",hue:"#fb7185"}
+];
+const QUESTIONS=[
+/* -- Python Basics (14) -- */
+{t:0,q:"Who created the Python programming language?",o:["James Gosling","Guido van Rossum","Brendan Eich","Dennis Ritchie"],a:1,e:"Guido van Rossum created Python at CWI in the Netherlands; the first public release was in 1991."},
+{t:0,q:"Python is best described as which kind of language?",o:["Compiled, low-level","Interpreted, high-level, general-purpose","Assembly-level","Markup language"],a:1,e:"CPython compiles source to bytecode and then interprets it — you never run a manual compile step."},
+{t:0,q:"Which symbol starts a comment in Python?",o:["//","/*","#","<!-- -->"],a:2,e:"Everything after `#` on a line is ignored. Python has no built-in block-comment syntax."},
+{t:0,q:"How are code blocks defined in Python?",o:["Curly braces { }","Indentation","begin … end keywords","Semicolons"],a:1,e:"Indentation is syntax in Python. PEP 8 recommends 4 spaces per level."},
+{t:0,q:"What is the correct way to display text on screen?",o:["echo('Hello')","console.log('Hello')","print('Hello')","printf('Hello')"],a:2,e:"`print()` writes to standard output — the fundamental Python output function."},
+{t:0,q:"Which function reads keyboard input as a string?",o:["scan()","read()","input()","gets()"],a:2,e:"`input()` always returns a str — wrap it in `int()` or `float()` to get a number."},
+{t:0,q:"What is the standard file extension for Python source files?",o:[".pt",".pyt",".py",".python"],a:2,e:"Python source files use `.py`; compiled bytecode caches use `.pyc`."},
+{t:0,q:"Which of these is a valid Python variable name?",o:["2total","total-2","_total2","class"],a:2,e:"Names may contain letters, digits and underscores, but can't start with a digit or be a keyword like `class`."},
+{t:0,q:"Python variable names are…",o:["Case-insensitive","Case-sensitive","Always uppercase","Limited to 8 characters"],a:1,e:"`Age` and `age` are two completely different variables."},
+{t:0,q:"What does `print(type(5))` display?",o:["int","<class 'int'>","number","Integer"],a:1,e:"`type()` returns the class object itself, whose representation is `<class 'int'>`."},
+{t:0,q:"Which keyword tests membership, as in `x ___ mylist`?",o:["has","contains","in","within"],a:2,e:"`in` checks membership in sequences, sets and dict keys — and also powers for-loops."},
+{t:0,q:"What is PEP 8?",o:["Python's package installer","Python's official style guide","An error code","A Python version number"],a:1,e:"PEP 8 is the style guide: naming, spacing, line length and layout conventions for readable Python."},
+{t:0,q:"Which command installs third-party Python packages?",o:["npm install","pip install","apt-get py","python get"],a:1,e:"`pip install package` fetches libraries from PyPI, the Python Package Index."},
+{t:0,q:"What does the `>>>` prompt indicate?",o:["An error line","The interactive Python shell (REPL)","A comment","An import statement"],a:1,e:"`>>>` is the REPL prompt — Read, Evaluate, Print, Loop — for trying code live."},
+/* -- Operators & Numbers (12) -- */
+{t:1,q:"What is the result of `7 / 2` in Python 3?",o:["3","3.5","3.0","2"],a:1,e:"`/` is true division and always produces a float: 7 / 2 → 3.5."},
+{t:1,q:"What is the result of `7 // 2`?",o:["3.5","3","4","1"],a:1,e:"`//` is floor division — it rounds the quotient down to a whole number."},
+{t:1,q:"What is the result of `7 % 3`?",o:["2","0","1","2.33"],a:2,e:"`%` gives the remainder: 7 = 3 × 2 + 1, so the answer is 1."},
+{t:1,q:"What is the result of `2 ** 3`?",o:["6","8","9","5"],a:1,e:"`**` is exponentiation: 2³ = 8. (There is no `^` power operator — `^` is bitwise XOR.)"},
+{t:1,q:"What does `print(-7 // 2)` output?",o:["-3","-4","-3.5","3"],a:1,e:"Floor division rounds toward negative infinity: −3.5 floors down to −4, not −3."},
+{t:1,q:"What does `print(0.1 + 0.2 == 0.3)` output?",o:["True","False","0.3","Error"],a:1,e:"Binary floats can't store 0.1 exactly; the sum is 0.30000000000000004. Compare with `math.isclose()`."},
+{t:1,q:"Which expression converts the string '42' into an integer?",o:["integer('42')","int('42')","'42'.toInt()","cast(42)"],a:1,e:"`int('42')` parses the string; `float('42')` would give 42.0 instead."},
+{t:1,q:"What does `print(round(2.5))` output?",o:["3","2","2.5","Error"],a:1,e:"`round()` uses banker's rounding — exact halves go to the nearest even number, so 2.5 → 2."},
+{t:1,q:"What is the result of `10 == 10.0`?",o:["True","False","Error","None"],a:0,e:"`==` compares values across numeric types — int 10 equals float 10.0."},
+{t:1,q:"Which operator is logical NOT in Python?",o:["!","not","~","<>"],a:1,e:"Python uses the words `and`, `or`, `not`. A bare `!` is invalid — it only appears inside `!=`."},
+{t:1,q:"What does `print(3 * 'ab')` output?",o:["ababab","3ab","ab ab ab","Error"],a:0,e:"str × int repeats the string: 3 copies of 'ab' → 'ababab'."},
+{t:1,q:"What does `divmod(7, 2)` return?",o:["(3.5, 0)","(3, 1)","(1, 3)","3.5"],a:1,e:"`divmod(a, b)` returns the pair (floor quotient, remainder) — here (3, 1)."},
+/* -- Strings (13) -- */
+{t:2,q:"If `s = 'Python'`, what is `s[0]`?",o:["'P'","'y'","'n'","Error"],a:0,e:"Indexing starts at 0, so `s[0]` is the first character, 'P'."},
+{t:2,q:"If `s = 'Python'`, what is `s[-1]`?",o:["'P'","'n'","'o'","Error"],a:1,e:"Negative indices count from the end — −1 is always the last character."},
+{t:2,q:"What does `print('Python'[1:4])` output?",o:["Pyt","yth","ytho","yt"],a:1,e:"The slice [1:4] takes indices 1, 2, 3 — the stop index is excluded."},
+{t:2,q:"What does `print('abcdef'[::-1])` output?",o:["abcdef","fedcba","ace","fdb"],a:1,e:"A step of −1 walks the string backwards — the idiomatic one-line reverse."},
+{t:2,q:"Strings in Python are…",o:["Mutable","Immutable","Limited to 255 characters","Always ASCII"],a:1,e:"`s[0] = 'J'` raises TypeError. Every 'modification' actually builds a new string."},
+{t:2,q:"What does `print(len('NICT '))` output? (note the trailing space)",o:["4","5","6","Error"],a:1,e:"`len()` counts every character — including the trailing space: N, I, C, T, space = 5."},
+{t:2,q:"Which method removes whitespace from both ends of a string?",o:["trim()","strip()","clean()","cut()"],a:1,e:"`strip()` trims both ends; `lstrip()` and `rstrip()` trim one side each."},
+{t:2,q:"What does `print('python'.upper())` output?",o:["Python","PYTHON","python","Error"],a:1,e:"`upper()` returns a new all-caps string — the original is unchanged."},
+{t:2,q:"What does `print('a,b,c'.split(','))` output?",o:["a b c","['a', 'b', 'c']","('a', 'b', 'c')","abc"],a:1,e:"`split(sep)` cuts the string at each separator and returns a list of pieces."},
+{t:2,q:"Which expression joins a list of words with hyphens?",o:["join('-', words)","'-'.join(words)","concat(words, '-')","words.join('-')"],a:1,e:"`join` is a string method called on the separator: `'-'.join(['a','b'])` → 'a-b'."},
+{t:2,q:"What does this code print?",c:"name = 'NICT'\nprint(f'Hi {name}')",o:["Hi {name}","Hi NICT","fHi NICT","Error"],a:1,e:"The `f` prefix makes it an f-string — expressions inside { } are evaluated and inserted."},
+{t:2,q:"What does `print('banana'.count('an'))` output?",o:["1","2","3","0"],a:1,e:"'an' occurs at indices 1 and 3 — `count()` finds non-overlapping matches: 2."},
+{t:2,q:"What does `print('7' + '3')` output?",o:["10","73","'10'","Error"],a:1,e:"`+` concatenates strings: '7' + '3' is the string '73', not the number 10."},
+/* -- Lists & Tuples (13) -- */
+{t:3,q:"Which brackets create a list?",o:["( )","[ ]","{ }","< >"],a:1,e:"Square brackets build lists: `[1, 2, 3]`. Parentheses build tuples; braces build dicts/sets."},
+{t:3,q:"Lists in Python are…",o:["Immutable and unordered","Mutable and ordered","Key–value pairs","Fixed in size"],a:1,e:"Lists keep insertion order and can be changed in place — append, remove, assign."},
+{t:3,q:"What is the output of this code?",c:"a = [1, 2, 3]\na.append(4)\nprint(len(a))",o:["3","4","5","Error"],a:1,e:"`append(4)` adds one element to the end, so the list becomes [1, 2, 3, 4] — length 4."},
+{t:3,q:"Which method adds each element of another list to the end?",o:["append()","extend()","add()","push()"],a:1,e:"`append(x)` adds x as one object; `extend(iterable)` adds each of its items individually."},
+{t:3,q:"What does this code print?",c:"a = [1, 2, 3]\nprint(a.pop())",o:["1","3","[1, 2]","None"],a:1,e:"`pop()` removes AND returns the last item by default — 3. `pop(0)` would return 1."},
+{t:3,q:"What does this code print?",c:"a = [3, 1, 2]\na.sort()\nprint(a)",o:["[3, 1, 2]","[1, 2, 3]","None","[2, 1, 3]"],a:1,e:"`sort()` orders the list in place (and returns None). The list itself is now [1, 2, 3]."},
+{t:3,q:"What is the difference between `sorted(a)` and `a.sort()`?",o:["sorted() returns a new list; sort() changes a in place","They are identical","sort() returns a new list; sorted() changes a","Both return None"],a:0,e:"Use `sorted(a)` when you need to keep the original; `a.sort()` when you don't."},
+{t:3,q:"Tuples in Python are…",o:["Mutable lists","Immutable sequences","Dictionaries","Unordered sets"],a:1,e:"Once created, a tuple's contents can't be reassigned — great for fixed records and dict keys."},
+{t:3,q:"What does `print(type((5)))` show?",o:["<class 'tuple'>","<class 'int'>","<class 'list'>","Error"],a:1,e:"A single element needs a trailing comma: `(5,)` is a tuple, but `(5)` is just the number 5."},
+{t:3,q:"What does `print([1, 2, 3] + [4])` output?",o:["[1, 2, 3, 4]","[1, 2, 3, [4]]","Error","[4, 1, 2, 3]"],a:0,e:"`+` concatenates lists into one flat list — it does not nest the second list."},
+{t:3,q:"If `a = [0, 1, 2, 3]`, what is `a[1:3]`?",o:["[0, 1, 2]","[1, 2]","[1, 2, 3]","[2, 3]"],a:1,e:"Slices include the start index and exclude the stop: indices 1 and 2 → [1, 2]."},
+{t:3,q:"Which expression creates the list [0, 1, 2, 3, 4]?",o:["range(0, 4)","list(range(5))","[0..4]","list(0, 4)"],a:1,e:"`range(5)` yields 0–4 (stop excluded); `list()` materialises it into a real list."},
+{t:3,q:"What does this code print?",c:"a = [1, 2]\nb = a\nb.append(3)\nprint(a)",o:["[1, 2]","[1, 2, 3]","[3]","Error"],a:1,e:"`b = a` copies the reference, not the list — both names point to one object. Use `a.copy()` or `a[:]` for a real copy."},
+/* -- Dicts & Sets (12) -- */
+{t:4,q:"Which brackets create a dictionary of key–value pairs?",o:["[ ]","( )","{ }","< >"],a:2,e:"`{'a': 1, 'b': 2}` — braces with `key: value` entries make a dict."},
+{t:4,q:"If `d = {'a': 1, 'b': 2}`, what is `d['b']`?",o:["1","2","'b'","Error"],a:1,e:"Square-bracket lookup returns the value stored under that key — 2."},
+{t:4,q:"How do you read a possibly-missing key without raising an error?",o:["d['x']","d.get('x', 0)","d.find('x')","d.fetch('x')"],a:1,e:"`d['x']` raises KeyError when absent; `.get()` returns the default (None if omitted)."},
+{t:4,q:"Which method returns all the keys of dictionary d?",o:["d.keys()","d.values()","d.items()","d.index()"],a:0,e:"`.keys()` gives the keys view, `.values()` the values, `.items()` the pairs."},
+{t:4,q:"Which method returns (key, value) pairs for looping?",o:["d.pairs()","d.entries()","d.items()","d.both()"],a:2,e:"`for k, v in d.items():` is the standard way to iterate keys and values together."},
+{t:4,q:"Dictionary keys must be…",o:["Strings only","Hashable (immutable types like str, int, tuple)","Integers only","Any object, including lists"],a:1,e:"Keys need a stable hash. Lists are mutable and unhashable, so they can't be keys."},
+{t:4,q:"What does this code print?",c:"d = {'x': 1}\nd['x'] = 9\nprint(d['x'])",o:["1","9","[1, 9]","Error"],a:1,e:"Assigning to an existing key overwrites its value — dicts hold one value per key."},
+{t:4,q:"Which built-in removes duplicates from a list?",o:["dict()","set()","tuple()","unique()"],a:1,e:"`set(items)` keeps only unique elements; wrap in `list()` to get a list back."},
+{t:4,q:"Sets in Python are…",o:["Ordered, with duplicates","Unordered collections of unique items","Key–value stores","Immutable lists"],a:1,e:"Sets deduplicate automatically and support fast membership tests — but keep no order guarantees."},
+{t:4,q:"What does `print({1, 2} | {2, 3})` output?",o:["{2}","{1, 2, 3}","{1, 3}","Error"],a:1,e:"`|` is set union — every element from both sets, deduplicated."},
+{t:4,q:"What does `print({1, 2} & {2, 3})` output?",o:["{1, 2, 3}","{2}","{1, 3}","set()"],a:1,e:"`&` is intersection — only elements present in both sets. (`-` would give the difference.)"},
+{t:4,q:"What does this code print?",c:"s = set()\ns.add(5)\ns.add(5)\nprint(len(s))",o:["2","1","0","Error"],a:1,e:"Adding a duplicate to a set is a no-op — the set still contains just {5}."},
+/* -- Control Flow & Loops (13) -- */
+{t:5,q:"Which keyword introduces an 'otherwise if' branch?",o:["else if","elseif","elif","elsif"],a:2,e:"Python spells it `elif:` — short for else-if, and it chains cleanly."},
+{t:5,q:"What does this loop print?",c:"for i in range(3):\n    print(i, end=' ')",o:["1 2 3","0 1 2","0 1 2 3","3"],a:1,e:"`range(3)` yields 0, 1, 2 and `end=' '` keeps them on one line separated by spaces."},
+{t:5,q:"What does `break` do inside a loop?",o:["Skips one iteration","Exits the loop immediately","Restarts the loop","Pauses the program"],a:1,e:"`break` abandons the whole loop and continues after it."},
+{t:5,q:"What does `continue` do inside a loop?",o:["Skips the rest of this iteration","Exits the loop","Ends the program","Repeats the same iteration"],a:0,e:"`continue` jumps straight to the next iteration, skipping the remaining body."},
+{t:5,q:"What does this code print?",c:"x = 5\nif x > 3:\n    print('A')\nelse:\n    print('B')",o:["A","B","AB","Error"],a:0,e:"5 > 3 is True, so the if-branch runs and prints A; the else is skipped."},
+{t:5,q:"How many times does the body of `while False:` run?",o:["Infinitely","0","1","Error"],a:1,e:"The condition is checked before each pass — False means the body never executes."},
+{t:5,q:"What does this loop print?",c:"for i in range(2, 10, 3):\n    print(i, end=' ')",o:["2 5 8","2 4 6 8","2 3 4","3 6 9"],a:0,e:"Start at 2, step by 3, stop before 10 → 2, 5, 8."},
+{t:5,q:"Which loop iterates directly over the items of a sequence?",o:["while","for","do-while","repeat"],a:1,e:"`for item in sequence:` is Python's iteration loop — there is no do-while in Python."},
+{t:5,q:"What does `print(sum(i for i in range(4)))` output?",o:["4","6","10","3"],a:1,e:"The generator yields 0, 1, 2, 3 and `sum` adds them: 0+1+2+3 = 6."},
+{t:5,q:"What does the `pass` statement do?",o:["Exits the function","Nothing — it's a placeholder","Skips a loop iteration","Raises an error"],a:1,e:"`pass` is a syntactic no-op, used where a statement is required but you want empty behaviour."},
+{t:5,q:"What does this code print?",c:"for i in range(3):\n    if i == 1:\n        continue\n    print(i, end=' ')",o:["0 1 2","0 2","1","0 1"],a:1,e:"When i is 1, `continue` skips the print — only 0 and 2 are shown."},
+{t:5,q:"An `else:` attached to a for/while loop runs when…",o:["Always","Never","The loop finished without hitting break","Only after a break"],a:2,e:"Loop-else executes only if the loop was not broken out of — handy for search loops."},
+{t:5,q:"Which one-liner builds the list [0, 1, 4, 9]?",o:["[i*i for i in range(4)]","[i*i in range(4)]","list(i*i, 4)","[range(4)**2]"],a:0,e:"A list comprehension: expression `i*i` plus a `for` clause inside brackets."},
+/* -- Functions & Modules (13) -- */
+{t:6,q:"Which keyword defines a function?",o:["func","function","def","define"],a:2,e:"`def name(params):` starts a function definition, followed by an indented body."},
+{t:6,q:"What does this code print?",c:"def f(a, b=2):\n    return a * b\n\nprint(f(3))",o:["3","6","5","Error"],a:1,e:"`b` falls back to its default value 2, so f(3) computes 3 × 2 = 6."},
+{t:6,q:"A function with no `return` statement returns…",o:["0","None","'' (empty string)","False"],a:1,e:"Every Python function returns something — without an explicit return, that something is None."},
+{t:6,q:"What does `print((lambda x: x*x)(4))` output?",o:["8","16","4","Error"],a:1,e:"`lambda x: x*x` builds a small anonymous function, called immediately with 4 → 16."},
+{t:6,q:"Which statement imports only `sqrt` from the math module?",o:["import sqrt from math","from math import sqrt","include math.sqrt","using math::sqrt"],a:1,e:"`from math import sqrt` binds the name directly — then call `sqrt(16)` without a prefix."},
+{t:6,q:"What does this code print?",c:"import math\nprint(math.sqrt(16))",o:["4","4.0","8","2"],a:1,e:"`math.sqrt()` always returns a float — even for perfect squares: 4.0."},
+{t:6,q:"In a function signature, `*args` collects…",o:["Keyword arguments into a dict","Extra positional arguments into a tuple","All global variables","Nothing — it's a comment"],a:1,e:"`*args` gathers any number of extra positional arguments, accessible as a tuple."},
+{t:6,q:"In a function signature, `**kwargs` collects…",o:["Extra keyword arguments into a dict","Positional arguments into a tuple","A list of defaults","A set of names"],a:0,e:"`**kwargs` packs unmatched keyword arguments into a dictionary of name → value."},
+{t:6,q:"A variable first assigned inside a function is…",o:["Global by default","Local to that function","Static","Shared across all calls"],a:1,e:"Assignment inside a function creates a local name. Use `global` to rebind a module-level variable."},
+{t:6,q:"What does the SECOND print show?",c:"def f(x, L=[]):\n    L.append(x)\n    return L\n\nprint(f(1))\nprint(f(2))",o:["[2]","[1, 2]","[1]","Error"],a:1,e:"The classic trap: a mutable default list is created once and shared by every call — so it accumulates. Use `L=None` and create the list inside."},
+{t:6,q:"Which call lists the names defined inside a module?",o:["dir(module)","ls(module)","module.names()","keys(module)"],a:0,e:"`dir()` returns the module's attribute names — functions, classes and variables."},
+{t:6,q:"What is a docstring?",o:["A # comment","A string literal documenting a module, class or function","An error message","An import alias"],a:1,e:"A triple-quoted string right after def/class — readable at runtime via `__doc__` and `help()`."},
+{t:6,q:"Code under `if __name__ == '__main__':` runs when…",o:["Always","Only when the file is imported","Only when the file is executed directly as a script","Never"],a:2,e:"On direct execution `__name__` is '__main__'; on import it's the module name — so the block is skipped."},
+/* -- OOP, Errors & Files (10) -- */
+{t:7,q:"Which keyword creates a class?",o:["def","class","object","struct"],a:1,e:"`class Name:` starts a class body — Python's blueprint for objects."},
+{t:7,q:"The method that initialises a new instance is named…",o:["__init__","__start__","init()","__create__"],a:0,e:"`__init__(self, …)` runs automatically after an object is created, setting up its attributes."},
+{t:7,q:"By convention, the first parameter of an instance method is…",o:["this","self","me","it"],a:1,e:"`self` refers to the instance the method was called on. It's a strong convention, not a keyword."},
+{t:7,q:"What does this code print?",c:"try:\n    x = 1 / 0\nexcept ZeroDivisionError:\n    print('caught')",o:["It crashes","caught","0","inf"],a:1,e:"1/0 raises ZeroDivisionError, the matching except block catches it and prints 'caught'."},
+{t:7,q:"Which block runs whether or not an exception occurred?",o:["else","finally","always","ensure"],a:1,e:"`finally:` always executes — ideal for cleanup like closing files or connections."},
+{t:7,q:"Which keyword raises an exception manually?",o:["throw","raise","error","except"],a:1,e:"`raise ValueError('bad input')` triggers an exception yourself; `except` handles one."},
+{t:7,q:"What is the best way to open a file so it closes automatically?",o:["open() on its own","with open('f.txt') as f:","file('f.txt')","fopen('f.txt')"],a:1,e:"The `with` context manager closes the file on exit — even if an exception is raised inside."},
+{t:7,q:"Which mode opens a file for writing and truncates existing content?",o:["'r'","'w'","'a'","'x'"],a:1,e:"'w' wipes and writes; 'a' appends to the end; 'x' fails if the file exists; 'r' reads."},
+{t:7,q:"What does this code print?",c:"class A:\n    pass\n\na = A()\nprint(isinstance(a, A))",o:["True","False","Error","None"],a:0,e:"`isinstance(obj, Class)` checks the object's type — a was built from A, so True."},
+{t:7,q:"What is the correct syntax for class B inheriting from class A?",o:["class B inherits A:","class B(A):","class B extends A:","B = inherit(A)"],a:1,e:"Parent classes go in parentheses after the child's name: `class B(A):`."}
+];
+const WA_NUMBER="917978758965",SAVE_KEY="nict_py_progress_v1",HIST_KEY="nict_py_attempts_v1",MUTE_KEY="nict_py_muted";
+const REDUCED=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ================= HELPERS ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const fmt=s=>esc(s).replace(/`([^`]+)`/g,'<code class="icd">$1</code>');
+const icon=(n,c)=>'<svg class="ic '+(c||"")+'" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-'+n+'"/></svg>';
+const pad=n=>String(n).padStart(2,"0");
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const fmtTime=ms=>{const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return h?h+":"+pad(m)+":"+pad(x):pad(m)+":"+pad(x);};
+const fmtDate=ts=>{const d=new Date(ts);return d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"})+", "+d.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"});};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const KW=new Set(["def","class","return","if","elif","else","for","while","in","not","and","or","is","import","from","as","with","try","except","finally","raise","lambda","pass","break","continue","global","yield","del","assert"]);
+function pyHi(src){
+  return esc(src).replace(/(&quot;.*?&quot;|'[^'\n]*'|#[^\n]*|\b(?:True|False|None)\b|\b(?:def|class|return|if|elif|else|for|while|in|not|and|or|is|import|from|as|with|try|except|finally|raise|lambda|pass|break|continue|global|yield|del|assert)\b|\b(?:print|len|range|type|input|int|str|float|list|dict|set|tuple|bool|sum|min|max|abs|round|sorted|enumerate|zip|open|isinstance|divmod|count|append|extend|pop|sort|add|get|keys|items|split|join|upper|strip|sqrt)\b(?=\()|\b\d+(?:\.\d+)?\b)/g,m=>{
+    let cls;
+    if(m[0]==="'"||m.startsWith("&quot;"))cls="s";
+    else if(m[0]==="#")cls="c";
+    else if(/^(True|False|None)$/.test(m))cls="ct";
+    else if(/^\d/.test(m))cls="n";
+    else if(KW.has(m))cls="k";
+    else cls="b";
+    return '<span class="py-'+cls+'">'+m+"</span>";
+  });
+}
+const isCodeOpt=o=>/[<>\[\]{}()'"=]|^-?\d|^(True|False|None)$/.test(o);
+
+/* ================= STATE ================= */
+const S={screen:"login",student:{name:"",mobile:""},answers:Array(100).fill(null),flags:new Set(),current:0,
+  autoAdvance:true,submitted:false,muted:false,elapsedBase:0,mark:0,running:false,timerInt:null,tickN:0,
+  adv:null,result:null,revFilter:"all",modalOpen:false,lastFocus:null};
+let A=[],REPORT="",WA_URL="",ATTEMPT_ID="";
+
+/* ================= AUDIO ================= */
+let AC=null,master=null;
+function ensureAudio(){
+  if(S.muted)return null;
+  try{
+    if(!AC){const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return null;
+      AC=new Ctx();master=AC.createGain();master.gain.value=.14;master.connect(AC.destination);}
+    if(AC.state==="suspended")AC.resume();
+    return AC;
+  }catch(e){return null;}
+}
+function tone(f,dur,type,vol,delay,slide){
+  const ctx=ensureAudio();if(!ctx)return;
+  try{
+    const t=ctx.currentTime+(delay||0),o=ctx.createOscillator(),g=ctx.createGain();
+    o.type=type||"sine";o.frequency.setValueAtTime(f,t);
+    if(slide)o.frequency.exponentialRampToValueAtTime(slide,t+dur);
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.5,t+.012);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    o.connect(g);g.connect(master);o.start(t);o.stop(t+dur+.05);
+  }catch(e){}
+}
+const sfx={
+  select(){tone(760,.07,"triangle",.5);tone(1140,.06,"sine",.25,.03);},
+  nav(){tone(340,.09,"sine",.3,0,520);},
+  flag(){tone(520,.08,"square",.22);},
+  clear(){tone(250,.09,"sine",.3,0,180);},
+  error(){tone(150,.2,"sawtooth",.3);},
+  start(){[392,523,659].forEach((f,i)=>tone(f,.14,"triangle",.4,i*.09));},
+  submit(){tone(523,.12,"triangle",.4);tone(659,.16,"triangle",.4,.1);},
+  win(){[523,659,784,1046].forEach((f,i)=>tone(f,.22,"triangle",.42,i*.12));},
+  lose(){tone(392,.22,"sine",.35);tone(330,.3,"sine",.3,.18);},
+  copy(){tone(880,.06,"sine",.3);}
+};
+function setMuted(m){
+  S.muted=m;try{localStorage.setItem(MUTE_KEY,m?"1":"0");}catch(e){}
+  const b=$("soundBtn");b.classList.toggle("muted",m);b.setAttribute("aria-pressed",String(!m));
+}
+
+/* ================= TOASTS ================= */
+function toast(msg,type){
+  const root=$("toastRoot");
+  while(root.children.length>=3)root.removeChild(root.firstChild);
+  const t=document.createElement("div");
+  t.className="toast"+(type==="warn"?" warn":"");
+  t.innerHTML=icon(type==="warn"?"alert":"check")+"<span>"+esc(msg)+"</span>";
+  root.appendChild(t);
+  requestAnimationFrame(()=>t.classList.add("show"));
+  setTimeout(()=>{t.classList.remove("show");setTimeout(()=>t.remove(),350);},2600);
+}
+
+/* ================= SCREENS ================= */
+function showScreen(name){
+  if(S.screen==="login"&&name!=="login")stopTyper();
+  S.screen=name;document.body.dataset.screen=name;
+  ["login","quiz","result"].forEach(n=>$("scr-"+n).classList.toggle("active",n===name));
+  window.scrollTo(0,0);
+  if(name==="login"){showResumeCard();updateLastChip();startTyper();}
+}
+
+/* ================= PARALLAX ================= */
+(function(){
+  if(REDUCED)return;
+  const gls=[...document.querySelectorAll(".gl")];
+  let tx=0,ty=0,cx=0,cy=0;
+  window.addEventListener("pointermove",e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
+  (function loop(){cx+=(tx-cx)*.055;cy+=(ty-cy)*.055;
+    gls.forEach(g=>{const d=+g.dataset.d;g.style.transform="translate3d("+(cx*d)+"px,"+(cy*d)+"px,0)";});
+    requestAnimationFrame(loop);})();
+})();
+
+/* ================= CODE TYPER ================= */
+let typerTimer=null,typerOn=false;
+function stopTyper(){
+  typerOn=false;clearTimeout(typerTimer);
+  document.querySelectorAll("#codeLines .tl").forEach(l=>l.classList.remove("pre","typing","done","idle-caret"));
+}
+function startTyper(){
+  if(typerOn)return;
+  const lines=[...document.querySelectorAll("#codeLines .tl")];
+  if(REDUCED){stopTyper();return;}
+  typerOn=true;
+  lines.forEach(l=>{l.classList.remove("typing","done","idle-caret");l.classList.add("pre");
+    const len=Math.max(l.textContent.length,1);
+    l.style.setProperty("--w",len+"ch");l.style.setProperty("--steps",len);
+    l.style.setProperty("--dur",Math.max(len*26,220)+"ms");});
+  let i=0;
+  function step(){
+    if(!typerOn)return;
+    if(i>=lines.length){typerTimer=setTimeout(()=>{if(typerOn){typerOn=false;startTyper();}},4600);return;}
+    const l=lines[i];l.classList.remove("pre");l.classList.add("typing");
+    const dur=Math.max(l.textContent.length*26,220);
+    typerTimer=setTimeout(()=>{if(!typerOn)return;
+      l.classList.remove("typing");
+      l.classList.add(i===lines.length-1?"idle-caret":"done");
+      i++;typerTimer=setTimeout(step,90);},dur+40);
+  }
+  typerTimer=setTimeout(step,600);
+}
+
+/* ================= LOGIN ================= */
+function validName(v){
+  v=v.trim();
+  if(v.length<3)return false;
+  try{return /^[\p{L}][\p{L} .']{2,59}$/u.test(v);}catch(e){return /^[A-Za-z][A-Za-z .']{2,59}$/.test(v);}
+}
+const validMobile=v=>/^[6-9]\d{9}$/.test(v);
+function fieldError(field,err){
+  const f=$(field);f.classList.toggle("err",!!err);
+  if(err){f.classList.remove("shake");void f.offsetWidth;f.classList.add("shake");}
+}
+function updateLastChip(){
+  let h=[];try{h=JSON.parse(localStorage.getItem(HIST_KEY)||"[]");}catch(e){}
+  const chip=$("lastChip");
+  if(h.length){$("lastChipTxt").textContent="Last attempt: "+h[0].name+" · "+h[0].score+"/100 · "+fmtDate(h[0].ts);chip.classList.add("show");}
+  else chip.classList.remove("show");
+}
+
+/* ================= ATTEMPT / PERSISTENCE ================= */
+function buildAttempt(){
+  A=QUESTIONS.map(q=>{const perm=shuffle([0,1,2,3]);
+    return {q,perm,opts:perm.map(j=>q.o[j]),correct:perm.indexOf(q.a)};});
+}
+function getElapsed(){return S.elapsedBase+(S.running?Date.now()-S.mark:0);}
+function save(){
+  if(!S.student.name||S.submitted)return;
+  try{sessionStorage.setItem(SAVE_KEY,JSON.stringify({v:1,name:S.student.name,mobile:S.student.mobile,
+    perms:A.map(x=>x.perm),answers:S.answers,flags:[...S.flags],current:S.current,elapsed:getElapsed(),auto:S.autoAdvance}));}catch(e){}
+}
+function loadSave(){
+  try{const p=JSON.parse(sessionStorage.getItem(SAVE_KEY)||"null");
+    if(p&&p.v===1&&Array.isArray(p.answers)&&p.answers.length===100&&Array.isArray(p.perms)&&p.perms.length===100&&typeof p.name==="string")return p;
+  }catch(e){}
+  return null;
+}
+function clearSave(){try{sessionStorage.removeItem(SAVE_KEY);}catch(e){}}
+function showResumeCard(){
+  const p=loadSave(),card=$("resumeCard");
+  if(p){const done=p.answers.filter(v=>v!==null).length;
+    $("resumeInfo").textContent=p.name+" · "+done+"/100 answered · "+fmtTime(p.elapsed||0)+" elapsed";
+    card.classList.add("show");}
+  else card.classList.remove("show");
+}
+function startTimer(){
+  clearInterval(S.timerInt);S.mark=Date.now();S.running=true;S.tickN=0;
+  const tick=()=>{$("navTimerVal").textContent=fmtTime(getElapsed());if(++S.tickN%10===0)save();};
+  tick();S.timerInt=setInterval(tick,1000);
+}
+function stopTimer(){
+  clearInterval(S.timerInt);S.timerInt=null;
+  if(S.running){S.elapsedBase=getElapsed();S.running=false;}
+}
+function unloadHandler(e){e.preventDefault();e.returnValue="";}
+function addUnload(){window.addEventListener("beforeunload",unloadHandler);}
+function removeUnload(){window.removeEventListener("beforeunload",unloadHandler);}
+function enterQuiz(){
+  $("navStudentName").textContent=S.student.name;
+  $("autoNext").checked=S.autoAdvance;
+  showScreen("quiz");buildPalette();renderQuestion(0);updatePalette();startTimer();addUnload();
+}
+function startAttempt(name,mobile){
+  S.student={name,mobile};S.answers=Array(100).fill(null);S.flags=new Set();S.current=0;
+  S.elapsedBase=0;S.submitted=false;S.result=null;
+  buildAttempt();enterQuiz();save();sfx.start();
+}
+function resumeAttempt(){
+  const p=loadSave();if(!p){showResumeCard();return;}
+  A=QUESTIONS.map((q,i)=>{const perm=p.perms[i];return {q,perm,opts:perm.map(j=>q.o[j]),correct:perm.indexOf(q.a)};});
+  S.student={name:p.name,mobile:p.mobile};
+  S.answers=p.answers.map(v=>Number.isInteger(v)&&v>=0&&v<4?v:null);
+  S.flags=new Set(Array.isArray(p.flags)?p.flags:[]);
+  S.current=clamp(p.current|0,0,99);S.elapsedBase=p.elapsed||0;S.autoAdvance=p.auto!==false;S.submitted=false;
+  enterQuiz();toast("Welcome back, "+S.student.name.split(" ")[0]+" — attempt resumed");
+}
+
+/* ================= QUIZ RENDER ================= */
+function buildPalette(){
+  $("palette").innerHTML=A.map((x,i)=>'<button type="button" class="pal-b" data-i="'+i+'" title="Q'+(i+1)+" · "+esc(TOPICS[x.q.t].name)+'">'+(i+1)+"</button>").join("");
+}
+function updatePalette(){
+  const kids=$("palette").children;
+  let done=0;
+  for(let i=0;i<100;i++){
+    const b=kids[i];if(!b)break;
+    const answered=S.answers[i]!==null;if(answered)done++;
+    b.className="pal-b"+(answered?" done":"")+(i===S.current?" cur":"")+(S.flags.has(i)?" flag":"");
+  }
+  $("palDone").textContent=done;$("palFlag").textContent=S.flags.size;$("palLeft").textContent=100-done;
+  $("progFill").style.width=done+"%";
+  $("progTxt").innerHTML="<b>"+done+"</b>/100 answered";
+  $("mbQ").textContent="Q "+pad(S.current+1)+" / 100";
+  $("mbDone").textContent=done+" answered";
+  const last=S.current===99;
+  $("btnSubmitSide").classList.toggle("pulse",last);
+  $("mbSubmit").classList.toggle("pulse",last);
+}
+function renderQuestion(dir){
+  clearTimeout(S.adv);
+  const i=S.current,x=A[i],t=TOPICS[x.q.t];
+  $("qCounter").innerHTML="<b>"+pad(i+1)+"</b> / 100";
+  const tc=$("qTopic");tc.textContent=t.name;tc.style.setProperty("--tc",t.hue);
+  $("qCard").style.setProperty("--tc",t.hue);
+  $("qGhost").textContent=pad(i+1);
+  $("qText").innerHTML=fmt(x.q.q);
+  if(x.q.c){$("qCode").style.display="";$("qCodePre").innerHTML=pyHi(x.q.c);}
+  else $("qCode").style.display="none";
+  $("optWrap").innerHTML=x.opts.map((o,j)=>{
+    const sel=S.answers[i]===j;
+    return '<button type="button" class="opt'+(sel?" selected":"")+'" data-i="'+j+'" aria-pressed="'+sel+'">'+
+      '<span class="opt-key">'+"ABCD"[j]+'</span><span class="opt-text'+(isCodeOpt(o)?" mono":"")+'">'+esc(o)+"</span>"+
+      '<span class="opt-check">'+icon("check")+"</span></button>";
+  }).join("");
+  const inner=$("qInner");
+  inner.classList.remove("q-anim","back");void inner.offsetWidth;
+  inner.classList.add("q-anim");if(dir<0)inner.classList.add("back");
+  $("btnPrev").disabled=i===0;$("mbPrev").disabled=i===0;
+  $("nextLbl").textContent=i===99?"Finish":"Next";
+  $("mbNextLbl").textContent=i===99?"Finish":"Next";
+  const flagged=S.flags.has(i);
+  $("btnFlag").classList.toggle("on",flagged);
+  $("flagLbl").textContent=flagged?"Marked ✓":"Mark for review";
+  updatePalette();
+}
+function refreshOptions(){
+  const kids=$("optWrap").children;
+  for(let j=0;j<kids.length;j++){
+    const sel=S.answers[S.current]===j;
+    kids[j].classList.toggle("selected",sel);
+    kids[j].setAttribute("aria-pressed",String(sel));
+  }
+}
+function select(j){
+  if(S.submitted||S.screen!=="quiz")return;
+  S.answers[S.current]=j;
+  refreshOptions();
+  const el=$("optWrap").children[j];
+  if(el){el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}
+  updatePalette();save();sfx.select();
+  clearTimeout(S.adv);
+  if(S.autoAdvance&&S.current<99)S.adv=setTimeout(()=>goto(S.current+1),650);
+}
+function goto(i){
+  i=clamp(i,0,99);
+  if(i===S.current)return;
+  const dir=i>S.current?1:-1;
+  S.current=i;renderQuestion(dir);save();sfx.nav();
+}
+function clearAns(){
+  if(S.answers[S.current]===null){toast("No response to clear on this question","warn");return;}
+  S.answers[S.current]=null;clearTimeout(S.adv);
+  refreshOptions();updatePalette();save();sfx.clear();toast("Response cleared");
+}
+function toggleFlag(){
+  const i=S.current;
+  if(S.flags.has(i))S.flags.delete(i);else S.flags.add(i);
+  const on=S.flags.has(i);
+  $("btnFlag").classList.toggle("on",on);
+  $("flagLbl").textContent=on?"Marked ✓":"Mark for review";
+  updatePalette();save();sfx.flag();
+}
+function nextAction(){if(S.current===99)openSubmitModal();else goto(S.current+1);}
+
+/* ================= MODALS ================= */
+function openModal(html){
+  S.lastFocus=document.activeElement;S.modalOpen=true;
+  const root=$("modalRoot");
+  root.innerHTML='<div class="modal-ov" id="modalOv"><div class="modal-card" role="dialog" aria-modal="true">'+html+"</div></div>";
+  $("modalOv").addEventListener("click",e=>{if(e.target.id==="modalOv")closeModal();});
+  const f=root.querySelector(".btn-gold,.btn-primary,.btn-green,button");if(f)f.focus();
+}
+function closeModal(){
+  $("modalRoot").innerHTML="";S.modalOpen=false;
+  if(S.lastFocus&&document.contains(S.lastFocus))S.lastFocus.focus();
+}
+function openSubmitModal(){
+  clearTimeout(S.adv);
+  const done=S.answers.filter(v=>v!==null).length,left=100-done,marked=S.flags.size;
+  const warn=left>0
+    ?'<div class="m-warn mw-amber">'+icon("alert")+"<span><b>"+left+" question"+(left>1?"s":"")+"</b> unattempted — they will score 0. There is no negative marking, so a guess can only help.</span></div>"
+    :'<div class="m-warn mw-green">'+icon("check")+"<span>All 100 questions answered — brilliant discipline! Ready to see your report?</span></div>";
+  openModal(
+    '<div class="m-ico">'+icon("send")+"</div><h3>Submit test?</h3>"+
+    '<p class="m-sub">Your report for <b>'+esc(S.student.name)+"</b> (+91 "+esc(S.student.mobile)+") will be generated and opened in WhatsApp to NICT.</p>"+
+    '<div class="m-stats"><div class="m-stat ms-green"><b>'+done+'</b><span>Answered</span></div><div class="m-stat ms-amber"><b>'+left+'</b><span>Left</span></div><div class="m-stat ms-mag"><b>'+marked+"</b><span>Marked</span></div></div>"+
+    warn+
+    '<div class="m-btns"><button class="btn btn-ghost" id="mCancel">Keep solving</button><button class="btn btn-gold" id="mConfirm">'+icon("send")+"Submit & Send</button></div>"
+  );
+  $("mCancel").addEventListener("click",closeModal);
+  $("mConfirm").addEventListener("click",doSubmit);
+}
+function openRetakeModal(){
+  openModal(
+    '<div class="m-ico">'+icon("refresh")+"</div><h3>Retake the test?</h3>"+
+    '<p class="m-sub">A fresh attempt for <b>'+esc(S.student.name)+"</b> begins with reshuffled options and a reset timer. Your current report stays in attempt history.</p>"+
+    '<div class="m-btns"><button class="btn btn-ghost" id="mCancel">Not now</button><button class="btn btn-gold" id="mConfirm">'+icon("refresh")+"Start fresh attempt</button></div>"
+  );
+  $("mCancel").addEventListener("click",closeModal);
+  $("mConfirm").addEventListener("click",()=>{closeModal();startAttempt(S.student.name,S.student.mobile);});
+}
+function openLeaveModal(){
+  openModal(
+    '<div class="m-ico">'+icon("exit")+"</div><h3>Pause & exit?</h3>"+
+    '<p class="m-sub">Your progress is saved in this tab. You can resume exactly where you left off from the login screen.</p>'+
+    '<div class="m-btns"><button class="btn btn-ghost" id="mCancel">Keep solving</button><button class="btn btn-gold" id="mConfirm">'+icon("exit")+"Save & exit</button></div>"
+  );
+  $("mCancel").addEventListener("click",closeModal);
+  $("mConfirm").addEventListener("click",()=>{save();stopTimer();removeUnload();closeModal();showScreen("login");});
+}
+
+/* ================= RESULTS ================= */
+function gradeFor(p){
+  if(p>=85)return{label:"Distinction",color:"#4ade80",msg:"Outstanding! You have a professional grip on Python."};
+  if(p>=70)return{label:"First Class",color:"#38bdf8",msg:"Great work — a strong, job-ready foundation."};
+  if(p>=55)return{label:"Second Class",color:"#ffb020",msg:"Good effort. Polish the weak topics below and re-attempt."};
+  if(p>=40)return{label:"Pass",color:"#a78bfa",msg:"You passed. Review the missed questions to level up."};
+  return{label:"Needs Practice",color:"#fb7185",msg:"Keep going — read every explanation below, then retake the test."};
+}
+function computeResults(){
+  const per=A.map((x,i)=>{const ch=S.answers[i];
+    return {i,ch,st:ch===null?"skip":(ch===x.correct?"correct":"wrong")};});
+  const c=per.filter(p=>p.st==="correct").length,w=per.filter(p=>p.st==="wrong").length,s=100-c-w;
+  const attempted=100-s,acc=attempted?Math.round(c/attempted*100):0;
+  const topics=TOPICS.map((t,ti)=>{const qs=per.filter(p=>A[p.i].q.t===ti);
+    return {ti,total:qs.length,correct:qs.filter(p=>p.st==="correct").length};});
+  const elapsed=getElapsed();
+  return {per,c,w,s,pct:c,acc,topics,elapsed,avg:elapsed/100,grade:gradeFor(c),ts:Date.now()};
+}
+function buildReport(R){
+  const line="━━━━━━━━━━━━━━━";
+  return "🐍 *NICT — PYTHON FOUNDATION TEST REPORT*\n"+line+
+    "\n👤 *Name:* "+S.student.name+
+    "\n📱 *Mobile:* +91 "+S.student.mobile+
+    "\n🆔 *Attempt:* "+ATTEMPT_ID+
+    "\n🗓 *Date:* "+fmtDate(R.ts)+
+    "\n⏱ *Time Taken:* "+fmtTime(R.elapsed)+
+    "\n"+line+
+    "\n✅ Correct: "+R.c+
+    "\n❌ Incorrect: "+R.w+
+    "\n⬜ Unattempted: "+R.s+
+    "\n🎯 *SCORE: "+R.c+"/100 ("+R.pct+"%)*"+
+    "\n🏅 *Grade:* "+R.grade.label+
+    "\n📊 Accuracy: "+R.acc+"% of attempted"+
+    "\n"+line+"\n*Topic-wise (correct/total):*\n"+
+    R.topics.map(t=>"• "+TOPICS[t.ti].name+": "+t.correct+"/"+t.total).join("\n")+
+    "\n"+line+"\n_Marking: +1 per correct · no negative marking_\n— Sent from NICT Student Test Portal";
+}
+function saveHistory(R){
+  try{const h=JSON.parse(localStorage.getItem(HIST_KEY)||"[]");
+    h.unshift({name:S.student.name,mobile:S.student.mobile,score:R.c,pct:R.pct,ts:R.ts});
+    localStorage.setItem(HIST_KEY,JSON.stringify(h.slice(0,5)));}catch(e){}
+}
+function doSubmit(){
+  if(S.submitted)return;
+  S.submitted=true;clearTimeout(S.adv);stopTimer();removeUnload();clearSave();
+  ATTEMPT_ID="NICT-PY-"+Math.random().toString(36).slice(2,6).toUpperCase()+Date.now().toString(36).slice(-4).toUpperCase();
+  const R=computeResults();S.result=R;
+  REPORT=buildReport(R);WA_URL="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(REPORT);
+  saveHistory(R);closeModal();renderResult(R);showScreen("result");
+  sfx.submit();
+  if(R.pct>=40){setTimeout(()=>sfx.win(),350);launchConfetti();}else setTimeout(()=>sfx.lose(),350);
+  openWhatsApp(true);
+}
+const RING_C=2*Math.PI*84;
+let ringRAF=null;
+function renderResult(R){
+  $("resName").textContent=S.student.name;
+  $("resMobile").textContent="+91 "+S.student.mobile;
+  $("resAvatar").textContent=S.student.name.trim().split(/\s+/).slice(0,2).map(w=>w[0].toUpperCase()).join("");
+  $("resId").textContent=ATTEMPT_ID;$("resDate").textContent=fmtDate(R.ts);
+  $("stCorrect").textContent=R.c;$("stWrong").textContent=R.w;$("stSkip").textContent=R.s;
+  $("stAcc").textContent=R.acc+"%";$("stTime").textContent=fmtTime(R.elapsed);
+  $("stAvg").textContent=(R.avg/1000).toFixed(1)+"s";
+  const gb=$("gradeBadge");gb.textContent=R.grade.label;gb.style.setProperty("--gc",R.grade.color);
+  $("gradeMsg").textContent=R.grade.msg;
+  const fg=$("ringFg");
+  fg.style.transition="none";fg.style.strokeDasharray=RING_C;fg.style.strokeDashoffset=RING_C;
+  void fg.getBoundingClientRect();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    fg.style.transition="";fg.style.strokeDashoffset=RING_C*(1-R.pct/100);}));
+  cancelAnimationFrame(ringRAF);
+  const t0=performance.now(),dur=REDUCED?1:1400;
+  (function count(now){
+    const p=clamp((now-t0)/dur,0,1),e=1-Math.pow(1-p,3),v=Math.round(R.c*e);
+    $("scoreNum").textContent=v;$("scorePct").textContent=v+"%";
+    if(p<1)ringRAF=requestAnimationFrame(count);
+  })(t0);
+  $("topicBars").innerHTML=R.topics.map((t,i)=>{
+    const tp=TOPICS[t.ti],pct=t.total?Math.round(t.correct/t.total*100):0;
+    return '<div class="bar-row" style="--tc:'+tp.hue+'"><span class="bar-name"><i></i>'+esc(tp.name)+"</span>"+
+      '<div class="bar-track"><div class="bar-fill" data-w="'+pct+'" style="--bd:'+(i*.08)+'s"></div></div>'+
+      '<span class="bar-val">'+t.correct+"<small>/"+t.total+"</small></span></div>";
+  }).join("");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    document.querySelectorAll("#topicBars .bar-fill").forEach(b=>b.style.width=b.dataset.w+"%");}));
+  $("btnWaLbl").textContent="Send on WhatsApp";$("btnWa").classList.remove("pulse");
+  const st2=$("waStep2");st2.className="wa-step";st2.innerHTML=icon("clock")+"2 · WhatsApp opened";
+  $("waStatus").innerHTML=icon("wa")+"<span>The report — with your name, mobile number and full summary — is pre-filled in a WhatsApp chat to NICT. Just press <b>Send</b> there.</span>";
+  $("waPreviewPre").textContent=REPORT;
+  $("cAll").textContent=100;$("cCorrect").textContent=R.c;$("cWrong").textContent=R.w;$("cSkip").textContent=R.s;
+  S.revFilter="all";$("revSearch").value="";
+  document.querySelectorAll("#revFilters .chip-f").forEach(c=>c.classList.toggle("active",c.dataset.f==="all"));
+  renderReview();
+}
+function renderReview(){
+  const R=S.result;if(!R)return;
+  const q=$("revSearch").value.trim().toLowerCase();
+  const items=R.per.filter(p=>(S.revFilter==="all"||p.st===S.revFilter)&&(!q||A[p.i].q.q.toLowerCase().includes(q)));
+  if(!items.length){$("revList").innerHTML='<div class="empty-rev">'+icon("search")+"<p>No questions match this filter.</p></div>";return;}
+  $("revList").innerHTML=items.map(p=>{
+    const x=A[p.i],t=TOPICS[x.q.t],L="ABCD";
+    const stIcon=p.st==="correct"?"check":p.st==="wrong"?"x":"minus";
+    let body=x.q.c?'<div class="ri-code">'+pyHi(x.q.c)+"</div>":"";
+    if(p.st==="correct"){
+      body+='<div class="ri-ans good"><span class="tag">Your answer ✓</span><span'+(isCodeOpt(x.opts[p.ch])?' class="mono"':"")+">"+L[p.ch]+" — "+esc(x.opts[p.ch])+"</span></div>";
+    }else{
+      if(p.st==="wrong")body+='<div class="ri-ans bad"><span class="tag">Your answer ✗</span><span'+(isCodeOpt(x.opts[p.ch])?' class="mono"':"")+">"+L[p.ch]+" — "+esc(x.opts[p.ch])+"</span></div>";
+      else body+='<div class="ri-ans none"><span class="tag">Skipped</span><span>Not attempted — 0 marks (no negative marking).</span></div>';
+      body+='<div class="ri-ans good"><span class="tag">Correct ✓</span><span'+(isCodeOpt(x.opts[x.correct])?' class="mono"':"")+">"+L[x.correct]+" — "+esc(x.opts[x.correct])+"</span></div>";
+    }
+    body+='<div class="ri-exp">'+icon("bulb")+"<span>"+fmt(x.q.e)+"</span></div>";
+    return '<details class="review-item '+p.st+'"><summary>'+
+      '<span class="ri-status">'+icon(stIcon)+'</span><span class="ri-num">Q'+pad(p.i+1)+"</span>"+
+      '<span class="ri-topic" style="--tc:'+t.hue+'">'+esc(t.short)+"</span>"+
+      '<span class="ri-q">'+esc(x.q.q.replace(/`/g,""))+"</span>"+
+      '<svg class="ic ri-chev" viewBox="0 0 24 24"><use href="#i-chev"/></svg></summary>'+
+      '<div class="ri-body">'+body+"</div></details>";
+  }).join("");
+}
+
+/* ================= WHATSAPP / EXPORT ================= */
+function openWhatsApp(auto){
+  let w=null;
+  try{w=window.open(WA_URL,"_blank");}catch(e){}
+  const st2=$("waStep2");
+  if(w){
+    try{w.opener=null;}catch(e){}
+    st2.className="wa-step ok";st2.innerHTML=icon("check")+"2 · WhatsApp opened";
+    $("waStatus").innerHTML=icon("wa")+"<span>WhatsApp opened in a new tab with your report to <b class='mono'>+91 79787 58965</b>. Press <b>Send</b> there to deliver it to NICT.</span>";
+    $("btnWaLbl").textContent="Open WhatsApp again";$("btnWa").classList.remove("pulse");
+  }else{
+    st2.className="wa-step warn";st2.innerHTML=icon("alert")+"2 · Tap the green button";
+    $("waStatus").innerHTML=icon("alert")+"<span>Your browser blocked the automatic popup. Tap <b>Send on WhatsApp</b> below — it opens the same pre-filled chat to NICT.</span>";
+    $("btnWa").classList.add("pulse");
+    if(auto)toast("Popup blocked — tap the green WhatsApp button","warn");
+  }
+}
+function copyReport(){
+  const done=()=>{toast("Report copied — paste it anywhere");sfx.copy();};
+  const fallback=()=>{
+    try{const ta=document.createElement("textarea");ta.value=REPORT;ta.style.cssText="position:fixed;opacity:0";
+      document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();done();}
+    catch(e){toast("Copy failed — use Download instead","warn");}
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(REPORT).then(done).catch(fallback);
+  else fallback();
+}
+function downloadReport(){
+  try{
+    const blob=new Blob([REPORT],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download="NICT_Python_Report_"+S.student.name.replace(/\s+/g,"_")+"_"+S.result.c+"-100.txt";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1200);
+    toast("Report downloaded");sfx.copy();
+  }catch(e){toast("Download failed on this browser","warn");}
+}
+
+/* ================= CONFETTI ================= */
+const cvs=$("confetti"),cctx=cvs.getContext("2d");
+let confParts=[],confRAF=null,confActive=false;
+function sizeConfetti(){
+  const dpr=Math.min(devicePixelRatio||1,2);
+  cvs.width=innerWidth*dpr;cvs.height=innerHeight*dpr;
+  cvs.style.width=innerWidth+"px";cvs.style.height=innerHeight+"px";
+  cctx.setTransform(dpr,0,0,dpr,0,0);
+}
+function stopConfetti(){confActive=false;cancelAnimationFrame(confRAF);confParts=[];cctx.clearRect(0,0,innerWidth,innerHeight);}
+function launchConfetti(){
+  if(REDUCED)return;
+  stopConfetti();sizeConfetti();confActive=true;
+  const colors=["#4b8bbe","#ffd43b","#38bdf8","#4ade80","#e879f9","#a78bfa","#fb923c"];
+  for(let i=0;i<170;i++){
+    confParts.push({x:rnd(.15,.85)*innerWidth,y:innerHeight*.22+rnd(-50,50),
+      vx:rnd(-6.5,6.5),vy:rnd(-11.5,-3.5),g:.26,w:rnd(5,10),h:rnd(8,16),
+      rot:rnd(0,Math.PI*2),vr:rnd(-.22,.22),color:colors[i%colors.length],
+      life:rnd(130,190),circle:Math.random()<.25});
+  }
+  let frames=0;
+  (function loop(){
+    if(!confActive)return;
+    cctx.clearRect(0,0,innerWidth,innerHeight);
+    confParts=confParts.filter(p=>p.life>0&&p.y<innerHeight+40);
+    confParts.forEach(p=>{
+      p.x+=p.vx;p.vy+=p.g;p.y+=p.vy;p.vx*=.99;p.rot+=p.vr;p.life--;
+      cctx.save();cctx.globalAlpha=clamp(p.life/60,0,1);
+      cctx.translate(p.x,p.y);cctx.rotate(p.rot);cctx.fillStyle=p.color;
+      if(p.circle){cctx.beginPath();cctx.arc(0,0,p.w/2,0,Math.PI*2);cctx.fill();}
+      else cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      cctx.restore();
+    });
+    if(confParts.length&&++frames<330)confRAF=requestAnimationFrame(loop);
+    else stopConfetti();
+  })();
+}
+window.addEventListener("resize",()=>{if(confActive)sizeConfetti();},{passive:true});
+
+/* ================= EVENTS / INIT ================= */
+function init(){
+  try{setMuted(localStorage.getItem(MUTE_KEY)==="1");}catch(e){setMuted(false);}
+  $("soundBtn").addEventListener("click",()=>{setMuted(!S.muted);if(!S.muted)sfx.copy();toast(S.muted?"Sound muted":"Sound on");});
+  $("topicPreview").innerHTML=TOPICS.map((t,i)=>{
+    const n=QUESTIONS.filter(q=>q.t===i).length;
+    return '<span class="tp-chip" style="--tc:'+t.hue+'"><i></i>'+esc(t.short)+" <b>"+n+"</b></span>";
+  }).join("");
+  $("inpMobile").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").slice(0,10);fieldError("fieldMobile",false);});
+  $("inpName").addEventListener("input",()=>fieldError("fieldName",false));
+  $("loginForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=$("inpName").value.trim().replace(/\s+/g," "),mob=$("inpMobile").value.trim();
+    const okN=validName(name),okM=validMobile(mob);
+    fieldError("fieldName",!okN);fieldError("fieldMobile",!okM);
+    if(!okN||!okM){sfx.error();(!okN?$("inpName"):$("inpMobile")).focus();return;}
+    startAttempt(name,mob);
+  });
+  $("btnResume").addEventListener("click",resumeAttempt);
+  $("btnDiscard").addEventListener("click",()=>{clearSave();showResumeCard();toast("Saved attempt discarded");});
+  $("optWrap").addEventListener("click",e=>{const b=e.target.closest(".opt");if(b)select(+b.dataset.i);});
+  $("palette").addEventListener("click",e=>{const b=e.target.closest(".pal-b");if(b)goto(+b.dataset.i);});
+  $("btnClear").addEventListener("click",clearAns);
+  $("btnFlag").addEventListener("click",toggleFlag);
+  $("btnPrev").addEventListener("click",()=>goto(S.current-1));
+  $("btnNext").addEventListener("click",nextAction);
+  $("mbPrev").addEventListener("click",()=>goto(S.current-1));
+  $("mbNext").addEventListener("click",nextAction);
+  $("btnSubmitSide").addEventListener("click",openSubmitModal);
+  $("mbSubmit").addEventListener("click",openSubmitModal);
+  $("autoNext").addEventListener("change",e=>{S.autoAdvance=e.target.checked;save();});
+  $("btnWa").addEventListener("click",()=>openWhatsApp(false));
+  $("btnCopy").addEventListener("click",copyReport);
+  $("btnDl").addEventListener("click",downloadReport);
+  $("btnRetake").addEventListener("click",openRetakeModal);
+  $("btnNew").addEventListener("click",()=>{
+    $("inpName").value="";$("inpMobile").value="";fieldError("fieldName",false);fieldError("fieldMobile",false);
+    showScreen("login");
+  });
+  $("revFilters").addEventListener("click",e=>{
+    const c=e.target.closest(".chip-f");if(!c)return;
+    S.revFilter=c.dataset.f;
+    document.querySelectorAll("#revFilters .chip-f").forEach(x=>x.classList.toggle("active",x===c));
+    renderReview();
+  });
+  $("revSearch").addEventListener("input",renderReview);
+  $("brandBtn").addEventListener("click",()=>{
+    if(S.screen==="quiz")openLeaveModal();
+    else if(S.screen==="result")showScreen("login");
+  });
+  window.addEventListener("keydown",e=>{
+    if(S.modalOpen){
+      if(e.key==="Escape"){e.preventDefault();closeModal();return;}
+      if(e.key==="Tab"){
+        const f=[...$("modalRoot").querySelectorAll("button,[href],input,select,textarea")].filter(x=>!x.disabled);
+        if(!f.length)return;
+        const first=f[0],last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+      return;
+    }
+    if(S.screen!=="quiz")return;
+    if(e.target.closest("input,textarea,select"))return;
+    const k=e.key.toLowerCase();
+    if(["1","2","3","4"].includes(k)){e.preventDefault();select(+k-1);}
+    else if(["a","b","c","d"].includes(k)){e.preventDefault();select("abcd".indexOf(k));}
+    else if(k==="m"){e.preventDefault();toggleFlag();}
+    else if(k==="x"){e.preventDefault();clearAns();}
+    else if(e.key==="ArrowRight"){e.preventDefault();nextAction();}
+    else if(e.key==="ArrowLeft"){e.preventDefault();goto(S.current-1);}
+  });
+  updateLastChip();showResumeCard();startTyper();
+}
+init();
+})();
+</script>
+</body>
+</html>
